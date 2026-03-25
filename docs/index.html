@@ -19,22 +19,20 @@
       color: #fff;
       padding: 20px;
     }
-    header h1 {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-    header p {
-      font-size: 13px;
-      color: #aaa;
-      margin-top: 4px;
-    }
+    header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.03em; }
+    header p { font-size: 13px; color: #aaa; margin-top: 4px; }
 
-    .container {
-      max-width: 860px;
+    /* 2カラムレイアウト */
+    .layout {
+      max-width: 1060px;
       margin: 0 auto;
       padding: 24px 20px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
     }
+    .main { flex: 1; min-width: 0; }
+    .sidebar { width: 200px; flex-shrink: 0; }
 
     /* セクション見出し */
     .section-title {
@@ -49,12 +47,7 @@
     }
 
     /* レースカード */
-    .race-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
+    .race-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
 
     .race-card {
       background: #fff;
@@ -69,122 +62,117 @@
       transition: box-shadow 0.15s;
       border-left: 4px solid #1a1a2e;
     }
-    .race-card:hover {
-      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-    }
+    .race-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
     .race-card.grade-g1 { border-left-color: #e63946; }
     .race-card.grade-g2 { border-left-color: #457b9d; }
     .race-card.grade-g3 { border-left-color: #2d6a4f; }
-    .race-card.coming-soon {
-      opacity: 0.5;
-      pointer-events: none;
-      border-left-color: #ccc;
-    }
 
     .race-grade {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px; height: 36px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 6px;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
     }
     .race-grade.g1 { background: #e63946; color: #fff; }
     .race-grade.g2 { background: #457b9d; color: #fff; }
     .race-grade.g3 { background: #2d6a4f; color: #fff; }
-    .race-grade.op  { background: #888; color: #fff; }
 
     .race-info { flex: 1; }
-    .race-name {
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .race-meta {
-      font-size: 12px;
-      color: #888;
-      margin-top: 2px;
-    }
+    .race-name { font-size: 16px; font-weight: 700; }
+    .race-meta { font-size: 12px; color: #888; margin-top: 2px; }
 
-    .race-honmei {
-      text-align: right;
-      flex-shrink: 0;
-    }
-    .honmei-label {
-      font-size: 11px;
-      color: #999;
-    }
-    .honmei-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #1a1a2e;
-    }
+    .race-honmei { text-align: right; flex-shrink: 0; }
+    .honmei-label { font-size: 11px; color: #999; }
+    .honmei-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
     .honmei-badge {
-      display: inline-block;
-      background: #e63946;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 3px;
-      margin-right: 4px;
-    }
-
-    .coming-soon-label {
-      font-size: 12px;
-      color: #aaa;
-      font-style: italic;
+      display: inline-block; background: #e63946; color: #fff;
+      font-size: 11px; font-weight: 700; padding: 1px 5px;
+      border-radius: 3px; margin-right: 4px;
     }
 
     /* about */
     .about-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
+      background: #fff; border-radius: 8px; padding: 20px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    .about-card h2 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #1a1a2e;
-    }
-    .about-card p {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 8px;
-    }
+    .about-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #1a1a2e; }
+    .about-card p { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 8px; }
     .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .tag {
-      background: #f0f0f0;
-      color: #555;
-      font-size: 12px;
-      padding: 3px 10px;
-      border-radius: 20px;
+    .tag { background: #f0f0f0; color: #555; font-size: 12px; padding: 3px 10px; border-radius: 20px; }
+
+    /* サイドバー：月別アーカイブ */
+    .sidebar-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .sidebar-card h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
     }
 
-    /* 過去の予想 折りたたみ */
-    .past-section { margin-bottom: 32px; }
-    .past-section[open] .past-summary { margin-bottom: 0; }
-    .past-summary {
-      cursor: pointer;
+    /* 年の折りたたみ */
+    .archive-year { margin-bottom: 4px; }
+    .archive-year summary {
       list-style: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: #444;
+      padding: 4px 0;
       user-select: none;
     }
-    .past-summary::-webkit-details-marker { display: none; }
-    .past-summary:hover { color: #555; }
+    .archive-year summary::-webkit-details-marker { display: none; }
+    .archive-year summary:hover { color: #1a1a2e; }
+    .archive-year[open] summary { color: #1a1a2e; }
 
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-      padding: 24px 20px;
+    /* 月リスト */
+    .archive-months { padding: 2px 0 4px 8px; }
+    .archive-month {
+      margin-bottom: 2px;
     }
+    .archive-month summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 13px;
+      color: #555;
+      padding: 3px 0;
+      user-select: none;
+    }
+    .archive-month summary::-webkit-details-marker { display: none; }
+    .archive-month summary:hover { color: #e63946; }
+    .archive-month summary .count { color: #aaa; font-size: 12px; }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 18px; }
+    /* レースリンク */
+    .archive-race-list { padding: 2px 0 4px 8px; }
+    .archive-race-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+      text-decoration: none;
+      color: #555;
+      font-size: 12px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .archive-race-link:last-child { border-bottom: none; }
+    .archive-race-link:hover { color: #e63946; }
+    .archive-grade-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .dot-g1 { background: #e63946; }
+    .dot-g2 { background: #457b9d; }
+    .dot-g3 { background: #2d6a4f; }
+
+    footer { text-align: center; font-size: 12px; color: #aaa; padding: 24px 20px; }
+
+    @media (max-width: 720px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; }
       .race-name { font-size: 15px; }
       .race-honmei { display: none; }
     }
@@ -197,74 +185,63 @@
   <p>ルールベース傾向分析 ＋ LightGBM機械学習モデルによる統合予想</p>
 </header>
 
-<div class="container">
+<div class="layout">
 
-  <!-- 直近レース（開催前のレースのみここに追加） -->
-  <div class="section-title">直近の予想</div>
-  <div class="race-grid" id="upcoming-grid">
-    <p style="color:#aaa; font-size:13px; padding:8px 0;">現在予想公開中のレースはありません。</p>
+  <!-- ========== メインコンテンツ ========== -->
+  <div class="main">
+
+    <!-- 直近レース（開催前のレースのみここに追加） -->
+    <div class="section-title">直近の予想</div>
+    <div class="race-grid">
+      <p style="color:#aaa; font-size:13px; padding:8px 0;">現在予想公開中のレースはありません。</p>
+    </div>
+
+    <!-- このサイトについて -->
+    <div class="section-title">このサイトについて</div>
+    <div class="about-card">
+      <h2>AI×データで競馬を予想する</h2>
+      <p>過去10年以上のレース結果をもとにしたルールベース傾向分析と、LightGBMによる機械学習モデルを組み合わせた統合予想サイトです。</p>
+      <p>人気・枠番・前走ローテ・騎手成績・血統などの多角的なデータから、期待値の高い馬を選出します。</p>
+      <div class="tag-list">
+        <span class="tag">ルールベース分析</span>
+        <span class="tag">LightGBM</span>
+        <span class="tag">過去10年データ</span>
+        <span class="tag">騎手成績</span>
+        <span class="tag">期待値重視</span>
+      </div>
+    </div>
+
   </div>
 
-  <!-- 過去の予想（折りたたみ） -->
-  <details class="past-section">
-    <summary class="section-title past-summary">過去の予想 ▾</summary>
-    <div class="race-grid" style="margin-top:12px;">
+  <!-- ========== サイドバー：月別アーカイブ ========== -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <h2>月別アーカイブ</h2>
 
-      <a href="flower-cup-2026.html" class="race-card grade-g3">
-        <div class="race-grade g3">G3</div>
-        <div class="race-info">
-          <div class="race-name">フラワーC 2026</div>
-          <div class="race-meta">2026年3月21日（土） ／ 中山11R ／ 芝1800m 3歳牝馬</div>
-        </div>
-        <div class="race-honmei">
-          <div class="honmei-label">◎本命</div>
-          <div class="honmei-name"><span class="honmei-badge">◎</span>ゴディアーモ</div>
-        </div>
-      </a>
+      <!-- 2026年 -->
+      <details class="archive-year" open>
+        <summary>2026年</summary>
+        <div class="archive-months">
 
-      <a href="aichi-cup-2026.html" class="race-card grade-g3">
-        <div class="race-grade g3">G3</div>
-        <div class="race-info">
-          <div class="race-name">愛知杯（京都牝馬S） 2026</div>
-          <div class="race-meta">2026年3月22日（日） ／ 中京11R ／ 芝1400m 牝馬限定</div>
-        </div>
-        <div class="race-honmei">
-          <div class="honmei-label">◎本命</div>
-          <div class="honmei-name"><span class="honmei-badge">◎</span>ウイントワイライト</div>
-        </div>
-      </a>
+          <!-- 2026年3月 -->
+          <details class="archive-month" open>
+            <summary>3月 <span class="count">( 3 )</span></summary>
+            <div class="archive-race-list">
+              <a href="hanshin-daishoten-2026.html" class="archive-race-link">
+                <span class="archive-grade-dot dot-g2"></span>阪神大賞典
+              </a>
+              <a href="aichi-cup-2026.html" class="archive-race-link">
+                <span class="archive-grade-dot dot-g3"></span>愛知杯
+              </a>
+              <a href="flower-cup-2026.html" class="archive-race-link">
+                <span class="archive-grade-dot dot-g3"></span>フラワーC
+              </a>
+            </div>
+          </details>
 
-      <a href="hanshin-daishoten-2026.html" class="race-card grade-g2">
-        <div class="race-grade g2">G2</div>
-        <div class="race-info">
-          <div class="race-name">阪神大賞典 2026</div>
-          <div class="race-meta">2026年3月22日（日） ／ 阪神11R ／ 芝3000m</div>
         </div>
-        <div class="race-honmei">
-          <div class="honmei-label">◎本命</div>
-          <div class="honmei-name"><span class="honmei-badge">◎</span>ファミリータイム</div>
-        </div>
-      </a>
+      </details>
 
-    </div>
-  </details>
-
-  <!-- このサイトについて -->
-  <div class="section-title">このサイトについて</div>
-  <div class="about-card">
-    <h2>AI×データで競馬を予想する</h2>
-    <p>
-      過去10年以上のレース結果をもとにしたルールベース傾向分析と、LightGBMによる機械学習モデルを組み合わせた統合予想サイトです。
-    </p>
-    <p>
-      人気・枠番・前走ローテ・騎手成績・血統などの多角的なデータから、期待値の高い馬を選出します。
-    </p>
-    <div class="tag-list">
-      <span class="tag">ルールベース分析</span>
-      <span class="tag">LightGBM</span>
-      <span class="tag">過去10年データ</span>
-      <span class="tag">騎手成績</span>
-      <span class="tag">期待値重視</span>
     </div>
   </div>
 
