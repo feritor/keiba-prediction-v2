@@ -14,9 +14,7 @@ script/
 Thumbs.db
 .DS_Store
 
-# docs: race/ のみコミット対象、js/css/ は除外
-docs/js/
-docs/css/
+# docs: race/, js/, css/ すべてコミット対象
 
 # その他
 メモ.md
