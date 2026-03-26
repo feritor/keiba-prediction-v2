@@ -4,179 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>競馬AI予想 | ルールベース＋ML統合予想</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #1a1a2e;
-      color: #fff;
-      padding: 20px;
-    }
-    header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.03em; }
-    header p { font-size: 13px; color: #aaa; margin-top: 4px; }
-
-    /* 2カラムレイアウト */
-    .layout {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 24px 20px;
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-    }
-    .main { flex: 1; min-width: 0; }
-    .sidebar { width: 200px; flex-shrink: 0; }
-
-    /* セクション見出し */
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    /* レースカード */
-    .race-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-
-    .race-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px 20px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow 0.15s;
-      border-left: 4px solid #1a1a2e;
-    }
-    .race-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
-    .race-card.grade-g1 { border-left-color: #e63946; }
-    .race-card.grade-g2 { border-left-color: #457b9d; }
-    .race-card.grade-g3 { border-left-color: #2d6a4f; }
-
-    .race-grade {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 6px;
-      font-size: 12px; font-weight: 700; flex-shrink: 0;
-    }
-    .race-grade.g1 { background: #e63946; color: #fff; }
-    .race-grade.g2 { background: #457b9d; color: #fff; }
-    .race-grade.g3 { background: #2d6a4f; color: #fff; }
-
-    .race-info { flex: 1; }
-    .race-name { font-size: 16px; font-weight: 700; }
-    .race-meta { font-size: 12px; color: #888; margin-top: 2px; }
-
-    .race-honmei { text-align: right; flex-shrink: 0; }
-    .honmei-label { font-size: 11px; color: #999; }
-    .honmei-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
-    .honmei-badge {
-      display: inline-block; background: #e63946; color: #fff;
-      font-size: 11px; font-weight: 700; padding: 1px 5px;
-      border-radius: 3px; margin-right: 4px;
-    }
-
-    /* about */
-    .about-card {
-      background: #fff; border-radius: 8px; padding: 20px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .about-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: #1a1a2e; }
-    .about-card p { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 8px; }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .tag { background: #f0f0f0; color: #555; font-size: 12px; padding: 3px 10px; border-radius: 20px; }
-
-    /* サイドバー：月別アーカイブ */
-    .sidebar-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .sidebar-card h2 {
-      font-size: 14px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    /* 年の折りたたみ */
-    .archive-year { margin-bottom: 4px; }
-    .archive-year summary {
-      list-style: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      color: #444;
-      padding: 4px 0;
-      user-select: none;
-    }
-    .archive-year summary::-webkit-details-marker { display: none; }
-    .archive-year summary:hover { color: #1a1a2e; }
-    .archive-year[open] summary { color: #1a1a2e; }
-
-    /* 月リスト */
-    .archive-months { padding: 2px 0 4px 8px; }
-    .archive-month {
-      margin-bottom: 2px;
-    }
-    .archive-month summary {
-      list-style: none;
-      cursor: pointer;
-      font-size: 13px;
-      color: #555;
-      padding: 3px 0;
-      user-select: none;
-    }
-    .archive-month summary::-webkit-details-marker { display: none; }
-    .archive-month summary:hover { color: #e63946; }
-    .archive-month summary .count { color: #aaa; font-size: 12px; }
-
-    /* レースリンク */
-    .archive-race-list { padding: 2px 0 4px 8px; }
-    .archive-race-link {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 0;
-      text-decoration: none;
-      color: #555;
-      font-size: 12px;
-      border-bottom: 1px solid #f5f5f5;
-    }
-    .archive-race-link:last-child { border-bottom: none; }
-    .archive-race-link:hover { color: #e63946; }
-    .archive-grade-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-    }
-    .dot-g1 { background: #e63946; }
-    .dot-g2 { background: #457b9d; }
-    .dot-g3 { background: #2d6a4f; }
-
-    footer { text-align: center; font-size: 12px; color: #aaa; padding: 24px 20px; }
-
-    @media (max-width: 720px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: 100%; }
-      .race-name { font-size: 15px; }
-      .race-honmei { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -212,12 +40,23 @@
       <p style="color:#aaa; font-size:13px; padding:8px 0;">現在予想公開中のレースはありません。</p>
     </div>
 
-
-
   </div>
 
-  <!-- ========== サイドバー：月別アーカイブ ========== -->
+  <!-- ========== サイドバー ========== -->
   <div class="sidebar">
+
+    <!-- カレンダー -->
+    <div class="sidebar-card" style="margin-bottom:16px;">
+      <h2>カレンダー</h2>
+      <div class="cal-nav">
+        <button id="cal-prev">&#8249;</button>
+        <span class="cal-month-label" id="cal-label"></span>
+        <button id="cal-next">&#8250;</button>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+
+    <!-- 月別アーカイブ -->
     <div class="sidebar-card">
       <h2>月別アーカイブ</h2>
 
@@ -230,13 +69,13 @@
           <details class="archive-month" open>
             <summary>3月 <span class="count">( 3 )</span></summary>
             <div class="archive-race-list">
-              <a href="hanshin-daishoten-2026.html" class="archive-race-link">
+              <a href="race/hanshin-daishoten-2026.html" class="archive-race-link">
                 <span class="archive-grade-dot dot-g2"></span>阪神大賞典
               </a>
-              <a href="aichi-cup-2026.html" class="archive-race-link">
+              <a href="race/aichi-cup-2026.html" class="archive-race-link">
                 <span class="archive-grade-dot dot-g3"></span>愛知杯
               </a>
-              <a href="flower-cup-2026.html" class="archive-race-link">
+              <a href="race/flower-cup-2026.html" class="archive-race-link">
                 <span class="archive-grade-dot dot-g3"></span>フラワーC
               </a>
             </div>
@@ -254,5 +93,6 @@
   ※本サイトの予想は参考情報です。馬券の購入は自己責任でお楽しみください。
 </footer>
 
+<script src="js/calendar.js"></script>
 </body>
 </html>
