@@ -16,117 +16,286 @@
   <div class="site-name">競馬AI予想</div>
   <h1>スプリングS 2026</h1>
   <div class="race-meta">
-    <span class="grade-badge g3">OP</span>
-    
+    <span class="grade-badge g2">GII</span>
+    2026年3月15日（日） ／ 中山11R ／ 芝1800m 3歳
   </div>
 </header>
 
 <div class="page-wrapper">
 <div class="tab-card">
 
+<!-- タブ -->
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('yoso')">予想</button>
   <button class="tab-btn" onclick="switchTab('kaimoku')">買い目</button>
   <button class="tab-btn" onclick="switchTab('trend')">傾向分析</button>
 </div>
 
-<!-- 予想タブ -->
+<!-- ========== 予想タブ ========== -->
 <div id="tab-yoso" class="tab-content active">
+
   <div class="card">
-    <h2>予想印（ルールベース＋ML統合）</h2>
+    <h2>予想印（ルールベース）</h2>
     <div class="horse-list">
 
       <div class="horse-row row-honmei">
         <span class="badge badge-honmei">◎</span>
-        <div class="horse-num"></div>
+        <div class="horse-num">11</div>
         <div class="horse-info">
-          <div class="horse-name">11</div>
-          <div class="horse-sub">騎手: ()</div>
-          <div class="horse-sub">東スポ杯4着経験＋コントレイル産駒の中山適性＋坂井瑠星Aランク＋18.8倍の妙味。analysis.mdの「上昇型かつ有力血統」パターンに合致</div>
+          <div class="horse-name">テルヒコウ</div>
+          <div class="horse-sub">騎手: 坂井瑠星(A)</div>
+          <div class="horse-sub">東スポ杯2歳S（GII）4着経験＋コントレイル産駒の中山適性＋坂井瑠星Aランク＋18.8倍の妙味。上昇型かつ有力血統パターンに合致</div>
         </div>
-        <div class="horse-odds">テルヒコウ</div>
+        <div class="horse-odds">18.8倍<small>5番人気</small></div>
       </div>
+
       <div class="horse-row row-taiko">
         <span class="badge badge-taiko">○</span>
-        <div class="horse-num"></div>
+        <div class="horse-num">2</div>
         <div class="horse-info">
-          <div class="horse-name">2</div>
-          <div class="horse-sub">騎手: ()</div>
-          <div class="horse-sub">ホープフルS3着（GI掲示板）の実績最上位＋中山2000m経験＋リオンディーズ産駒の中山適性。騎手Cランクが唯一のマイナス</div>
+          <div class="horse-name">アスクエジンバラ</div>
+          <div class="horse-sub">騎手: 岩田康誠(C)</div>
+          <div class="horse-sub">ホープフルS3着（GI掲示板）の実績最上位＋中山2000m経験＋リオンディーズ産駒の中山適性。騎手Cランクが唯一のマイナスも5.4倍は割安感あり</div>
         </div>
-        <div class="horse-odds">アスクエジンバラ</div>
+        <div class="horse-odds">5.4倍<small>2番人気</small></div>
       </div>
+
       <div class="horse-row row-santen">
         <span class="badge badge-santen">▲</span>
-        <div class="horse-num"></div>
+        <div class="horse-num">12</div>
         <div class="horse-info">
-          <div class="horse-name">12</div>
-          <div class="horse-sub">騎手: ()</div>
-          <div class="horse-sub">1番人気ルメール騎乗＋中山重賞2勝のルメール×スプリングS。キャリア不足と低倍率が難点だが能力上位</div>
+          <div class="horse-name">クレパスキュラー</div>
+          <div class="horse-sub">騎手: C.ルメール(S)</div>
+          <div class="horse-sub">1番人気ルメール騎乗＋スプリングS2勝の実績。リオンディーズ×ディープインパクトの中山向き配合。キャリア2戦と低倍率が難点（1番人気勝率30%）</div>
         </div>
-        <div class="horse-odds">クレパスキュラー</div>
+        <div class="horse-odds">1.9倍<small>1番人気</small></div>
       </div>
+
       <div class="horse-row row-tanko">
         <span class="badge badge-tanko">△</span>
-        <div class="horse-num"></div>
+        <div class="horse-num">14</div>
         <div class="horse-info">
-          <div class="horse-name">14</div>
-          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-name">アクロフェイズ</div>
+          <div class="horse-sub">騎手: 西村淳也(B)</div>
           <div class="horse-sub">若駒Sリステッド2着＋ロードカナロア産駒（2023/2025年スプリングS好走傾向）＋27.1倍の大きな妙味。穴候補筆頭</div>
         </div>
-        <div class="horse-odds">アクロフェイズ</div>
+        <div class="horse-odds">27.1倍<small>10番人気</small></div>
       </div>
+
       <div class="horse-row row-tanko">
         <span class="badge badge-tanko">△</span>
-        <div class="horse-num"></div>
+        <div class="horse-num">15</div>
         <div class="horse-info">
-          <div class="horse-name">15</div>
-          <div class="horse-sub">騎手: ()</div>
-          <div class="horse-sub">キズナ産駒の中山適性＋ルメール手放し後の17.1倍。未勝利→重賞のリスクはあるが血統・間隔は問題なし</div>
+          <div class="horse-name">アウダーシア</div>
+          <div class="horse-sub">騎手: 津村明秀(B)</div>
+          <div class="horse-sub">キズナ産駒の中山適性＋母父ルーラーシップのパワー補完＋17.1倍の割安感。未勝利→重賞のリスクはあるが血統・間隔は問題なし</div>
         </div>
-        <div class="horse-odds">アウダーシア</div>
+        <div class="horse-odds">17.1倍<small>7番人気</small></div>
       </div>
+
     </div>
   </div>
+
   <div class="card">
-    <h2>全出走馬オッズ</h2>
-    
+    <h2>総合スコア一覧</h2>
+    <table class="odds-table">
+      <thead>
+        <tr><th>印</th><th>馬番</th><th>馬名</th><th>スコア</th><th>単勝オッズ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>◎</td><td>11</td><td>テルヒコウ</td><td>80/100</td><td>18.8倍</td></tr>
+        <tr><td>○</td><td>2</td><td>アスクエジンバラ</td><td>76/100</td><td>5.4倍</td></tr>
+        <tr><td>▲</td><td>12</td><td>クレパスキュラー</td><td>74/100</td><td>1.9倍</td></tr>
+        <tr><td>△</td><td>14</td><td>アクロフェイズ</td><td>66/100</td><td>27.1倍</td></tr>
+        <tr><td>△</td><td>15</td><td>アウダーシア</td><td>63/100</td><td>17.1倍</td></tr>
+        <tr><td>—</td><td>16</td><td>サウンドムーブ</td><td>65/100</td><td>13.7倍</td></tr>
+        <tr><td>—</td><td>4</td><td>ラストスマイル</td><td>60/100</td><td>15.7倍</td></tr>
+        <tr><td>—</td><td>10</td><td>サノノグレーター</td><td>58/100</td><td>12.7倍</td></tr>
+        <tr><td>—</td><td>13</td><td>ミスターライト</td><td>58/100</td><td>14.0倍</td></tr>
+      </tbody>
+    </table>
   </div>
-  <p class="note" style="margin:0 0 20px;">
-    ※本予想はルールベース傾向分析（過去10年）＋LightGBM機械学習モデル＋騎手成績データによるAI予想です。
-    調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
-  </p>
+
+  <div class="card">
+    <h2>本命・対抗の根拠</h2>
+    <h3>◎本命：テルヒコウ（11番）</h3>
+    <ol>
+      <li><strong>血統</strong>: コントレイル産駒はディープインパクト系のパワー型。過去10年でディープインパクト系統は毎年3着以内に1〜2頭が絡む最重要系統</li>
+      <li><strong>前走パターン</strong>: 東京スポーツ杯2歳S（GII）4着という「重賞での経験＋力のある走り」。同レース経験馬は過去にも好走（2020年ガロアクリーク、2021年ヴィクティファルス等）</li>
+      <li><strong>騎手</strong>: 坂井瑠星Aランク（勝率15.6%・複勝率40.7%）。重賞での安定感あり</li>
+      <li><strong>オッズ</strong>: 18.8倍は実力に対して明確な割安感</li>
+    </ol>
+    <h3>○対抗：アスクエジンバラ（2番）</h3>
+    <ol>
+      <li><strong>GI好走経験</strong>: ホープフルS3着はスプリングS出走馬中最高格の実績</li>
+      <li><strong>中山コース適性</strong>: 中山2000mのホープフルS3着はコース適性の証明</li>
+      <li><strong>血統</strong>: リオンディーズ産駒（クレパスキュラーと同父）で中山中距離向き</li>
+      <li><strong>オッズ妙味</strong>: 5.4倍はGI好走実績に対してやや割安</li>
+    </ol>
+    <h3>▲軸：クレパスキュラー（12番）</h3>
+    <ol>
+      <li><strong>騎手</strong>: C.ルメール（Sランク・スプリングS2勝）が最大の信頼材料</li>
+      <li><strong>血統</strong>: リオンディーズ×ディープインパクト配合は中山向き</li>
+      <li><strong>懸念</strong>: キャリア2戦・1.9倍の低配当は過去のパターンから見てリスクあり</li>
+    </ol>
+  </div>
+
 </div>
 
-<!-- 買い目タブ -->
+<!-- ========== 買い目タブ ========== -->
 <div id="tab-kaimoku" class="tab-content">
+
   <div class="card">
-    <h2>推奨買い目</h2>
-    <p>買い目データなし</p>
+    <h2>買い目（参考）</h2>
+
+    <h3>三連複（本線）</h3>
+    <table class="odds-table">
+      <thead><tr><th>種別</th><th>買い目</th></tr></thead>
+      <tbody>
+        <tr><td>◎○▲ボックス</td><td>11-2-12（本線）</td></tr>
+        <tr><td>◎軸2頭流し</td><td>11-2-14</td></tr>
+        <tr><td>◎軸2頭流し</td><td>11-2-15</td></tr>
+        <tr><td>◎軸2頭流し</td><td>11-12-14</td></tr>
+        <tr><td>◎軸2頭流し</td><td>11-12-15</td></tr>
+      </tbody>
+    </table>
+
+    <h3>三連単</h3>
+    <table class="odds-table">
+      <thead><tr><th>買い目</th><th>組み合わせ</th></tr></thead>
+      <tbody>
+        <tr><td>◎→○→▲</td><td>11 → 2 → 12</td></tr>
+        <tr><td>◎→▲→○</td><td>11 → 12 → 2</td></tr>
+        <tr><td>○→◎→▲</td><td>2 → 11 → 12</td></tr>
+      </tbody>
+    </table>
+
+    <h3>ワイド（保険）</h3>
+    <table class="odds-table">
+      <thead><tr><th>組み合わせ</th></tr></thead>
+      <tbody>
+        <tr><td>11-2</td></tr>
+        <tr><td>11-12</td></tr>
+        <tr><td>2-12</td></tr>
+        <tr><td>11-14</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card" style="background:#1a2035; margin-top:16px;">
+      <h3>注意事項・リスク要因</h3>
+      <ul>
+        <li><strong>クレパスキュラー（1番人気）</strong>: 過去10年で1番人気の1着は3/10（30%）。単勝1.9倍での期待値は低い。ただしルメール×スプリングS2勝のバイアスは無視できない</li>
+        <li><strong>ロードレイジング（1番）</strong>: 地方競馬所属・ダート専馬が中山芝に出走。完全に無印</li>
+        <li><strong>フレイムスター（5番）</strong>: シンザン記念15着・長距離苦手の血統。無印妥当</li>
+        <li><strong>マカナアネラ（9番）</strong>: 前走が未勝利（小倉芝2000m）で格不足。無印妥当</li>
+      </ul>
+    </div>
   </div>
-  <div class="card">
-    <h2>総評</h2>
-    
-  </div>
+
 </div>
 
-<!-- 傾向分析タブ -->
+<!-- ========== 傾向分析タブ ========== -->
 <div id="tab-trend" class="tab-content">
+
   <div class="card">
-    <h2>過去の結果</h2>
-    <p>データなし</p>
+    <h2>スプリングS 傾向分析（2016〜2025年・過去10年）</h2>
+
+    <h3>1. 過去10年の結果</h3>
+    <table class="odds-table">
+      <thead><tr><th>年</th><th>1着（人気）</th><th>2着（人気）</th><th>3着（人気）</th><th>1着オッズ</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>マウントロブソン(4)</td><td>マイネルハニー(5)</td><td>ロードクエスト(1)</td><td>8.0倍</td></tr>
+        <tr><td>2017</td><td>ウインブライト(5)</td><td>アウトライアーズ(2)</td><td>プラチナヴォイス(6)</td><td>8.1倍</td></tr>
+        <tr><td>2018</td><td>ステルヴィオ(1)</td><td>エポカドーロ(3)</td><td>マイネルファンロン(6)</td><td>2.3倍</td></tr>
+        <tr><td>2019</td><td>エメラルファイト(10)</td><td>ファンタジスト(1)</td><td>ディキシーナイト(7)</td><td>27.1倍</td></tr>
+        <tr><td>2020</td><td>ガロアクリーク(6)</td><td>ヴェルトライゼンデ(1)</td><td>サクセッション(2)</td><td>16.6倍</td></tr>
+        <tr><td>2021</td><td>ヴィクティファルス(3)</td><td>アサマノイタズラ(7)</td><td>ボーデン(1)</td><td>7.1倍</td></tr>
+        <tr><td>2022</td><td>ビーアストニッシド(5)</td><td>アライバル(2)</td><td>サトノヘリオス(6)</td><td>7.0倍</td></tr>
+        <tr><td>2023</td><td>ベラジオオペラ(2)</td><td>ホウオウビスケッツ(3)</td><td>メタルスピード(8)</td><td>3.7倍</td></tr>
+        <tr><td>2024</td><td>シックスペンス(1)</td><td>アレグロブリランテ(9)</td><td>ルカランフィースト(4)</td><td>2.9倍</td></tr>
+        <tr><td>2025</td><td>ピコチャンブラック(2)</td><td>フクノブルーレイク(7)</td><td>キングスコール(1)</td><td>4.1倍</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2. 人気・荒れ傾向</h3>
+    <table class="odds-table">
+      <thead><tr><th>人気帯</th><th>3着以内</th><th>割合</th></tr></thead>
+      <tbody>
+        <tr><td>1〜3番人気</td><td>14頭</td><td>46.7%</td></tr>
+        <tr><td>4〜6番人気</td><td>9頭</td><td>30.0%</td></tr>
+        <tr><td>7〜9番人気</td><td>5頭</td><td>16.7%</td></tr>
+        <tr><td>10番人気以上</td><td>2頭</td><td>6.7%</td></tr>
+      </tbody>
+    </table>
+    <p><strong>判定: やや荒れやすい。</strong>1番人気の勝率は30%（10年で3勝）。5〜7番人気の穴馬が台頭しやすい。</p>
+
+    <h3>3. 前走パターン（勝ち馬）</h3>
+    <table class="odds-table">
+      <thead><tr><th>年</th><th>1着</th><th>前走レース</th><th>前走着順</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>マウントロブソン</td><td>1勝クラス（中山）</td><td>1着</td></tr>
+        <tr><td>2017</td><td>ウインブライト</td><td>葉牡丹賞（1勝クラス）</td><td>1着</td></tr>
+        <tr><td>2018</td><td>ステルヴィオ</td><td>シンザン記念（GIII）</td><td>1着</td></tr>
+        <tr><td>2019</td><td>エメラルファイト</td><td>1勝クラス（平場）</td><td>1着</td></tr>
+        <tr><td>2020</td><td>ガロアクリーク</td><td>東京スポーツ杯2歳S</td><td>4着（休み明け）</td></tr>
+        <tr><td>2021</td><td>ヴィクティファルス</td><td>ホープフルS（GI）</td><td>3着</td></tr>
+        <tr><td>2022</td><td>ビーアストニッシド</td><td>シンザン記念</td><td>—</td></tr>
+        <tr><td>2023</td><td>ベラジオオペラ</td><td>若駒S（L）</td><td>1着</td></tr>
+        <tr><td>2024</td><td>シックスペンス</td><td>京成杯（GIII）</td><td>2着</td></tr>
+        <tr><td>2025</td><td>ピコチャンブラック</td><td>若竹賞（1勝クラス）</td><td>1着</td></tr>
+      </tbody>
+    </table>
+
+    <h3>4. 枠番傾向</h3>
+    <table class="odds-table">
+      <thead><tr><th>枠帯</th><th>3着以内馬数</th><th>割合</th></tr></thead>
+      <tbody>
+        <tr><td>1〜3枠（内枠）</td><td>10頭</td><td>33.3%</td></tr>
+        <tr><td>4〜6枠（中枠）</td><td>10頭</td><td>33.3%</td></tr>
+        <tr><td>7〜8枠（外枠）</td><td>10頭</td><td>33.3%</td></tr>
+      </tbody>
+    </table>
+    <p><strong>判定: 枠の有利不利は明確でない。</strong>ただし1着に限ると7〜8枠が4回（40%）でやや多い。</p>
+
+    <h3>5. 血統傾向</h3>
+    <ul>
+      <li><strong>ディープインパクト系</strong>: 各年で3着以内に1〜2頭が必ず絡む最重要系統</li>
+      <li><strong>キングカメハメハ・ロードカナロア系</strong>: 近年台頭顕著（2023年・2025年にロードカナロア産駒活躍）</li>
+      <li><strong>Frankel・欧州型</strong>: スタミナ補完の血統で中山1800mに向く</li>
+      <li>中山芝の急坂には<strong>パワー系サンデーサイレンス系（スタミナ型）</strong>が合う</li>
+      <li>純粋なスピード型（短距離寄り）は最後の直線の急坂で詰まるリスクあり</li>
+    </ul>
+
+    <h3>6. 騎手傾向</h3>
+    <table class="odds-table">
+      <thead><tr><th>ランク</th><th>騎手</th></tr></thead>
+      <tbody>
+        <tr><td>S（スプリングS2勝）</td><td>C.ルメール（勝率28.6%・複勝率61.3%）</td></tr>
+        <tr><td>A</td><td>横山武史、坂井瑠星</td></tr>
+        <tr><td>B</td><td>横山和生、西村淳也、津村明秀</td></tr>
+        <tr><td>C</td><td>田辺裕信、岩田康誠、大野拓弥、団野大成、杉原誠人</td></tr>
+      </tbody>
+    </table>
+
+    <h3>7. 好走条件チェックリスト</h3>
+    <ul>
+      <li>前走: OP・重賞で掲示板（1〜5着）／ 前走距離: 1600〜2000m</li>
+      <li>臨戦過程: 上昇型または連続好走型が理想。叩き台型（長期休養明け）は要注意</li>
+      <li>血統: 父ディープインパクト系・キングカメハメハ系、母父スタミナ補完（Northern Dancer系）</li>
+      <li>キャリア: 4〜7戦が理想（経験値あり・消耗なし）</li>
+      <li>間隔: 前走から3〜6週が理想</li>
+      <li>荒れ度: やや荒れやすい（1番人気の単純信頼は禁物。5〜7番人気の穴馬に注目）</li>
+    </ul>
   </div>
-  <div class="card">
-    <h2>法則まとめ</h2>
-    <p>データなし</p>
-  </div>
-  <p class="note" style="margin:0 0 20px;">
-    ※分析対象: 過去10年分。
-  </p>
+
 </div>
 
 </div><!-- /tab-card -->
 </div><!-- /page-wrapper -->
+
+<footer>
+  ※本サイトの予想は参考情報です。馬券の購入は自己責任でお楽しみください。
+</footer>
 
 <script src="../js/race.js"></script>
 </body>
