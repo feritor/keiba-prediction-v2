@@ -1,12 +1,21 @@
 // レースデータ: { 'YYYY-MM-DD': [{ name, url, grade }, ...] }
 // 新しいレースを追加するときはここに追記する
 const RACE_EVENTS = {
+  '2026-03-15': [
+    { name: 'スプリングS', url: 'race/spring-s-2026.html', grade: 'g2' },
+    { name: '金鯱賞',     url: 'race/kinko-sho-2026.html', grade: 'g2' },
+  ],
   '2026-03-21': [
     { name: 'フラワーC',  url: 'race/flower-cup-2026.html',    grade: 'g3' },
+    { name: 'ファルコンS', url: 'race/falcon-s-2026.html', grade: 'g3' },
   ],
   '2026-03-22': [
     { name: '阪神大賞典', url: 'race/hanshin-daishoten-2026.html', grade: 'g2' },
     { name: '愛知杯',     url: 'race/aichi-cup-2026.html',     grade: 'g3' },
+  ],
+  '2026-03-28': [
+    { name: '日経賞', url: 'race/nikkeisho-2026.html', grade: 'g2' },
+    { name: '毎日杯', url: 'race/mainichi-hai-2026.html', grade: 'g3' },
   ],
 };
 

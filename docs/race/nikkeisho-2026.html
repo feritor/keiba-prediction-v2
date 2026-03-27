@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日経賞 2026 AI予想 | 競馬予想サイト</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5; color: #333; line-height: 1.6;
+    }
+    .back-bar { background: #111122; padding: 8px 20px; }
+    .back-link { color: #aaa; text-decoration: none; font-size: 13px; }
+    .back-link:hover { color: #fff; }
+    header { background: #1a1a2e; color: #fff; padding: 16px 20px; }
+    header .site-name { font-size: 13px; color: #aaa; margin-bottom: 4px; }
+    header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.03em; }
+    header .race-meta { font-size: 13px; color: #ccc; margin-top: 4px; }
+    .grade-badge {
+      display: inline-block; background: #e63946; color: #fff;
+      font-size: 11px; font-weight: 700; padding: 1px 6px;
+      border-radius: 3px; margin-right: 6px;
+    }
+    .tabs { display: flex; background: #fff; border-bottom: 2px solid #e0e0e0; overflow-x: auto; }
+    .tab-btn {
+      flex: 1; min-width: 80px; padding: 12px 16px; border: none; background: none;
+      font-size: 14px; font-weight: 600; color: #888; cursor: pointer;
+      border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap;
+    }
+    .tab-btn.active { color: #1a1a2e; border-bottom-color: #e63946; }
+    .tab-content { display: none; padding: 20px; max-width: 860px; margin: 0 auto; }
+    .tab-content.active { display: block; }
+    .card { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    .card h2 { font-size: 16px; font-weight: 700; margin-bottom: 14px;
+               padding-bottom: 8px; border-bottom: 2px solid #f0f0f0; color: #1a1a2e; }
+    .badge { display: inline-flex; align-items: center; justify-content: center;
+             width: 26px; height: 26px; border-radius: 50%; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+    .badge-honmei { background: #e63946; color: #fff; }
+    .badge-taiko  { background: #457b9d; color: #fff; }
+    .badge-santen { background: #2d6a4f; color: #fff; }
+    .badge-tanko  { background: #e9892a; color: #fff; }
+    .horse-list { display: flex; flex-direction: column; gap: 10px; }
+    .horse-row {
+      display: flex; align-items: center; gap: 12px; padding: 12px;
+      border-radius: 6px; background: #fafafa; border: 1px solid #ececec;
+    }
+    .horse-row.row-honmei { border-left: 4px solid #e63946; }
+    .horse-row.row-taiko  { border-left: 4px solid #457b9d; }
+    .horse-row.row-santen { border-left: 4px solid #2d6a4f; }
+    .horse-row.row-tanko  { border-left: 4px solid #e9892a; }
+    .horse-num { background: #1a1a2e; color: #fff; font-size: 12px; font-weight: 700;
+                 width: 24px; height: 24px; border-radius: 4px;
+                 display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .horse-info { flex: 1; }
+    .horse-name { font-size: 16px; font-weight: 700; }
+    .horse-sub  { font-size: 12px; color: #888; margin-top: 2px; }
+    .horse-odds { font-size: 14px; font-weight: 700; color: #e63946;
+                  text-align: right; flex-shrink: 0; }
+    .bet-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .bet-table th { background: #1a1a2e; color: #fff; padding: 8px 12px;
+                    text-align: left; font-weight: 600; }
+    .bet-table td { padding: 8px 12px; border-bottom: 1px solid #ececec; }
+    .bet-table tr:last-child td { border-bottom: none; }
+    .bet-table tr:hover td { background: #f9f9f9; }
+    .bet-type { display: inline-block; background: #1a1a2e; color: #fff;
+                font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: 700; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .data-table th { background: #f0f0f0; padding: 7px 10px; text-align: left;
+                     font-weight: 600; border-bottom: 2px solid #ddd; }
+    .data-table td { padding: 7px 10px; border-bottom: 1px solid #ececec; vertical-align: top; }
+    .data-table tr:hover td { background: #fafafa; }
+    .pop1 { color: #e63946; font-weight: 700; }
+    .pop2 { color: #457b9d; font-weight: 700; }
+    .rule-list { list-style: none; padding: 0; }
+    .rule-list li { padding: 8px 0 8px 20px; border-bottom: 1px solid #f0f0f0;
+                    font-size: 14px; position: relative; }
+    .rule-list li::before { content: "▶"; position: absolute; left: 0;
+                            color: #e63946; font-size: 10px; top: 11px; }
+    .rule-list li:last-child { border-bottom: none; }
+    .note { font-size: 12px; color: #999; margin-top: 16px;
+            padding-top: 12px; border-top: 1px solid #f0f0f0; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 18px; }
+      .tab-btn { font-size: 13px; padding: 10px 12px; }
+      .tab-content { padding: 14px; }
+      .horse-name { font-size: 15px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="index.html" class="back-link">← レース一覧に戻る</a>
+</div>
+
+<header>
+  <div class="site-name">競馬AI予想</div>
+  <h1>日経賞 2026</h1>
+  <div class="race-meta">
+    <span class="grade-badge">GII</span>
+    中山 芝2500m GII（右回り外回り）
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('yoso')">予想</button>
+  <button class="tab-btn" onclick="switchTab('kaimoku')">買い目</button>
+  <button class="tab-btn" onclick="switchTab('trend')">傾向分析</button>
+</div>
+
+<!-- 予想タブ -->
+<div id="tab-yoso" class="tab-content active">
+  <div class="card">
+    <h2>予想印（ルールベース＋ML統合）</h2>
+    <div class="horse-list">
+
+      <div class="horse-row row-honmei">
+        <span class="badge badge-honmei">◎</span>
+        <div class="horse-num">1</div>
+        <div class="horse-info">
+          <div class="horse-name">ミクニインスパイア</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">条件戦1着パターン合致・中山2500m2連勝・4歳56kg軽量</div>
+        </div>
+        <div class="horse-odds">4.9倍</div>
+      </div>
+      <div class="horse-row row-taiko">
+        <span class="badge badge-taiko">○</span>
+        <div class="horse-num">7</div>
+        <div class="horse-info">
+          <div class="horse-name">コスモキュランダ</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">有馬記念2着→日経賞パターン（高信頼度3/3）・ディープ系</div>
+        </div>
+        <div class="horse-odds">3.0倍</div>
+      </div>
+      <div class="horse-row row-santen">
+        <span class="badge badge-santen">▲</span>
+        <div class="horse-num">14</div>
+        <div class="horse-info">
+          <div class="horse-name">ローシャムパーク</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">ルメール最高評価・ハービンジャー血統適性・実力馬の復調期待</div>
+        </div>
+        <div class="horse-odds">7.3倍</div>
+      </div>
+      <div class="horse-row row-tanko">
+        <span class="badge badge-tanko">△</span>
+        <div class="horse-num">12</div>
+        <div class="horse-info">
+          <div class="horse-name">チャックネイト</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">リピーター（前年2着）・AJCCパターン</div>
+        </div>
+        <div class="horse-odds">11.3倍</div>
+      </div>
+      <div class="horse-row row-tanko">
+        <span class="badge badge-tanko">△</span>
+        <div class="horse-num">4</div>
+        <div class="horse-info">
+          <div class="horse-name">エヒト</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">前走AJCC激走・川田S評価・穴候補</div>
+        </div>
+        <div class="horse-odds">22.7倍</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>全出走馬オッズ</h2>
+    <table class="data-table"><thead><tr><th>馬番</th><th>人気</th><th>単勝オッズ</th><th>馬名</th></tr></thead><tbody><tr><td>7</td><td>1</td><td>3.0倍</td><td>コスモキュランダ</td></tr>
+<tr><td class="pop1">1</td><td>2</td><td>4.9倍</td><td>ミクニインスパイア</td></tr>
+<tr><td>15</td><td>3</td><td>7.1倍</td><td>マイユニバース</td></tr>
+<tr><td>14</td><td>4</td><td>7.3倍</td><td>ローシャムパーク</td></tr>
+<tr><td>12</td><td>5</td><td>11.3倍</td><td>チャックネイト</td></tr>
+<tr><td>10</td><td>6</td><td>12.3倍</td><td>シャイニングソード</td></tr>
+<tr><td>11</td><td>7</td><td>14.4倍</td><td>ミステリーウェイ</td></tr>
+<tr><td>4</td><td>8</td><td>22.7倍</td><td>エヒト</td></tr>
+<tr><td>5</td><td>9</td><td>24.3倍</td><td>アスクナイスショー</td></tr>
+<tr><td>3</td><td>10</td><td>30.5倍</td><td>クリスマスパレード</td></tr>
+<tr><td class="pop2">2</td><td>11</td><td>36.0倍</td><td>ホールネス</td></tr>
+<tr><td>9</td><td>12</td><td>43.4倍</td><td>マイネルケレリウス</td></tr>
+<tr><td>6</td><td>13</td><td>58.0倍</td><td>リビアングラス</td></tr>
+<tr><td>13</td><td>14</td><td>70.4倍</td><td>ブレイヴロッカー</td></tr>
+<tr><td>8</td><td>15</td><td>268.8倍</td><td>ホウオウノーサイド</td></tr>
+</tbody></table>
+  </div>
+  <p class="note" style="margin:0 0 20px;">
+    ※本予想はルールベース傾向分析（過去10年）＋LightGBM機械学習モデル＋騎手成績データによるAI予想です。
+    調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
+  </p>
+</div>
+
+<!-- 買い目タブ -->
+<div id="tab-kaimoku" class="tab-content">
+  <div class="card">
+    <h2>推奨買い目</h2>
+    <p>買い目データなし</p>
+  </div>
+  <div class="card">
+    <h2>総評</h2>
+    <p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>◎ミクニインスパイア（1番）を本命とする。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">最大の根拠は「条件戦（3勝クラス）前走1着→日経賞直行」という過去2018年ガンコ、2024年シュトルーヴェが歩んだ勝利パターンへの完全合致。さらに舞台が前走・前々走と同じ中山2500mというコース実績は出走15頭中最高水準。4歳56kgの軽量も後押しする。唯一の不安は父アドマイヤマーズがマイル系の血統という点だが、2500mで2連勝という事実が血統不安を払拭する。丹内騎手は昨年のマイネルエンペラーでこのレースを制しており、コース相性も良好。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>○コスモキュランダ（7番）が本命の相手筆頭。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">有馬記念好走（2着、12番人気）から3ヶ月の休養を挟んでの参戦は、ゴールドアクター(2016)・タイトルホルダー(2022, 2023)と全く同じ臨戦パターン。過去このパターンで3/3の勝率は圧倒的な信頼度。アルアイン産駒のスタミナも折り紙付き。1番人気のオッズ割高感はあるものの、傾向との整合性で軸馬候補に十分値する。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>▲ローシャムパーク（14番）は近走不振の実力馬。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">過去3走の大敗（宝塚15着・アルゼンチン12着・香港C5着）は割引材料だが、ルメール騎手（複勝率62%）とハービンジャー×キングカメハメハという中山2500mに最適な血統構成は捨てがたい。馬体が立て直されていれば1発があってもおかしくない。調教・馬体重で判断を加えること。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>△チャックネイト（12番）はリピーター候補として一発警戒。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">前年2着馬のリピーター傾向は強く（タイトルホルダー・ボッケリーニ・サクラアンプルールの実績）、AJCCからの臨戦も過去に勝ち馬2頭が歩んだパターン。AJCC13着大敗は不安材料だが、叩き台として見るなら消しにはできない。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>△エヒト（4番）は川田S評価で穴を狙う。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">AJCC3着（14番人気）という前走激走と川田将雅S評価のコンビは見逃せない。ルーラーシップ×ディープ系のスタミナ血統も2500mに合う。9歳という年齢が最大の懸念材料だが、前走の激走が本物なら台頭の余地あり。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">---</p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">*本予想はルールベース傾向分析（過去10年）×騎手成績データ（直近3年）によるAI予想です。*<br>*MLスコアは含まれません（combined_predictionをご参照ください）。*<br>*馬体重は当日確認が必要です。調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。*</p>
+
+  </div>
+</div>
+
+<!-- 傾向分析タブ -->
+<div id="tab-trend" class="tab-content">
+  <div class="card">
+    <h2>過去の結果</h2>
+    <table class="data-table"><thead><tr><th>年</th><th>1着</th><th>人気</th><th>枠</th><th>2着</th><th>枠</th><th>3着</th><th>枠</th><th>タイム</th></tr></thead><tbody>
+<tr><td>2016</td><td>ゴールドアクター</td><td>(非公開)</td><td>8</td><td>サウンズオブアース</td><td>4</td><td>マリアライト</td><td>2</td><td>2:36.8</td></tr>
+<tr><td>2017</td><td>シャケトラ</td><td>(非公開)</td><td>7</td><td>ミライヘノツバサ</td><td>6</td><td>アドマイヤデウス</td><td>5</td><td>2:32.8</td></tr>
+<tr><td>2018</td><td>ガンコ</td><td>(非公開)</td><td>7</td><td>チェスナットコート</td><td>2</td><td>サクラアンプルール</td><td>6</td><td>2:33.9</td></tr>
+<tr><td>2019</td><td>メイショウテッコン</td><td>(非公開)</td><td>1</td><td>エタリオウ</td><td>6</td><td>サクラアンプルール</td><td>4</td><td>2:34.2</td></tr>
+<tr><td>2020</td><td>ミッキースワロー</td><td>(非公開)</td><td>8</td><td>モズベッロ</td><td>6</td><td>スティッフェリオ</td><td>7</td><td>2:32.9</td></tr>
+<tr><td>2021</td><td>ウインマリリン</td><td>(非公開)</td><td>3</td><td>カレンブーケドール</td><td>4</td><td>ワールドプレミア</td><td>2</td><td>2:33.3</td></tr>
+<tr><td>2022</td><td>タイトルホルダー</td><td>1</td><td>6</td><td>ボッケリーニ</td><td>4</td><td>ヒートオンビート</td><td>4</td><td>2:35.4</td></tr>
+<tr><td>2023</td><td>タイトルホルダー</td><td>2</td><td>2</td><td>ボッケリーニ</td><td>5</td><td>ディアスティマ</td><td>5</td><td>2:36.8</td></tr>
+<tr><td>2024</td><td>シュトルーヴェ</td><td>4</td><td>6</td><td>クロミナンス</td><td>8</td><td>マイネルウィルトス</td><td>5</td><td>2:31.4</td></tr>
+<tr><td>2025</td><td>マイネルエンペラー</td><td>2</td><td>5</td><td>チャックネイト</td><td>4</td><td>アーバンシック</td><td>4</td><td>2:36.1</td></tr>
+</tbody></table>
+  </div>
+  <div class="card">
+    <h2>法則まとめ</h2>
+    <ul class="rule-list"><li><strong>人気</strong>: 1-4番人気が上位を占める。2-4番人気が馬連でお得</li>
+<li><strong>枠番</strong>: 全体的に枠不問。近年（2021-）は内〜中枠優勢に変化</li>
+<li><strong>前走GI</strong>: 有馬記念からの臨戦は前走着順不問で要注意（3/3連対）</li>
+<li><strong>前走AJCC</strong>: AJCC4-6着でも来る（2回）。前走大敗（13着）は割引</li>
+<li><strong>前走条件戦</strong>: 3勝クラス1着→直行は要注目（2/10の勝利パターン）</li>
+<li><strong>前走新春杯</strong>: 日経新春杯から2回勝利。前走9着でも来た例あり</li>
+<li><strong>血統</strong>: サンデー系スタミナ型が中心。ロベルト系も実績あり</li>
+<li><strong>リピーター</strong>: 前年上位馬（特に2着）は翌年も要注意</li>
+<li><strong>年齢</strong>: 4-6歳が中心（10歳以上は好走例なし）。9歳は未勝利</li>
+</ul>
+  </div>
+  <p class="note" style="margin:0 0 20px;">
+    ※分析対象: 過去10年分。
+  </p>
+</div>
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>

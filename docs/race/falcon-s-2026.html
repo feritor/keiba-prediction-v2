@@ -3,39 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/race.css">
   <title>ファルコンS 2026 AI予想 | 競馬予想サイト</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5; color: #333; line-height: 1.6;
+    }
+    .back-bar { background: #111122; padding: 8px 20px; }
+    .back-link { color: #aaa; text-decoration: none; font-size: 13px; }
+    .back-link:hover { color: #fff; }
+    header { background: #1a1a2e; color: #fff; padding: 16px 20px; }
+    header .site-name { font-size: 13px; color: #aaa; margin-bottom: 4px; }
+    header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.03em; }
+    header .race-meta { font-size: 13px; color: #ccc; margin-top: 4px; }
+    .grade-badge {
+      display: inline-block; background: #e63946; color: #fff;
+      font-size: 11px; font-weight: 700; padding: 1px 6px;
+      border-radius: 3px; margin-right: 6px;
+    }
+    .tabs { display: flex; background: #fff; border-bottom: 2px solid #e0e0e0; overflow-x: auto; }
+    .tab-btn {
+      flex: 1; min-width: 80px; padding: 12px 16px; border: none; background: none;
+      font-size: 14px; font-weight: 600; color: #888; cursor: pointer;
+      border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap;
+    }
+    .tab-btn.active { color: #1a1a2e; border-bottom-color: #e63946; }
+    .tab-content { display: none; padding: 20px; max-width: 860px; margin: 0 auto; }
+    .tab-content.active { display: block; }
+    .card { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    .card h2 { font-size: 16px; font-weight: 700; margin-bottom: 14px;
+               padding-bottom: 8px; border-bottom: 2px solid #f0f0f0; color: #1a1a2e; }
+    .badge { display: inline-flex; align-items: center; justify-content: center;
+             width: 26px; height: 26px; border-radius: 50%; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+    .badge-honmei { background: #e63946; color: #fff; }
+    .badge-taiko  { background: #457b9d; color: #fff; }
+    .badge-santen { background: #2d6a4f; color: #fff; }
+    .badge-tanko  { background: #e9892a; color: #fff; }
+    .horse-list { display: flex; flex-direction: column; gap: 10px; }
+    .horse-row {
+      display: flex; align-items: center; gap: 12px; padding: 12px;
+      border-radius: 6px; background: #fafafa; border: 1px solid #ececec;
+    }
+    .horse-row.row-honmei { border-left: 4px solid #e63946; }
+    .horse-row.row-taiko  { border-left: 4px solid #457b9d; }
+    .horse-row.row-santen { border-left: 4px solid #2d6a4f; }
+    .horse-row.row-tanko  { border-left: 4px solid #e9892a; }
+    .horse-num { background: #1a1a2e; color: #fff; font-size: 12px; font-weight: 700;
+                 width: 24px; height: 24px; border-radius: 4px;
+                 display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .horse-info { flex: 1; }
+    .horse-name { font-size: 16px; font-weight: 700; }
+    .horse-sub  { font-size: 12px; color: #888; margin-top: 2px; }
+    .horse-odds { font-size: 14px; font-weight: 700; color: #e63946;
+                  text-align: right; flex-shrink: 0; }
+    .bet-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .bet-table th { background: #1a1a2e; color: #fff; padding: 8px 12px;
+                    text-align: left; font-weight: 600; }
+    .bet-table td { padding: 8px 12px; border-bottom: 1px solid #ececec; }
+    .bet-table tr:last-child td { border-bottom: none; }
+    .bet-table tr:hover td { background: #f9f9f9; }
+    .bet-type { display: inline-block; background: #1a1a2e; color: #fff;
+                font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: 700; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .data-table th { background: #f0f0f0; padding: 7px 10px; text-align: left;
+                     font-weight: 600; border-bottom: 2px solid #ddd; }
+    .data-table td { padding: 7px 10px; border-bottom: 1px solid #ececec; vertical-align: top; }
+    .data-table tr:hover td { background: #fafafa; }
+    .pop1 { color: #e63946; font-weight: 700; }
+    .pop2 { color: #457b9d; font-weight: 700; }
+    .rule-list { list-style: none; padding: 0; }
+    .rule-list li { padding: 8px 0 8px 20px; border-bottom: 1px solid #f0f0f0;
+                    font-size: 14px; position: relative; }
+    .rule-list li::before { content: "▶"; position: absolute; left: 0;
+                            color: #e63946; font-size: 10px; top: 11px; }
+    .rule-list li:last-child { border-bottom: none; }
+    .note { font-size: 12px; color: #999; margin-top: 16px;
+            padding-top: 12px; border-top: 1px solid #f0f0f0; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 18px; }
+      .tab-btn { font-size: 13px; padding: 10px 12px; }
+      .tab-content { padding: 14px; }
+      .horse-name { font-size: 15px; }
+    }
+</style>
 </head>
 <body>
 
 <div class="back-bar">
-  <a href="../index.html" class="back-link">← レース一覧に戻る</a>
+  <a href="index.html" class="back-link">← レース一覧に戻る</a>
 </div>
 
 <header>
   <div class="site-name">競馬AI予想</div>
   <h1>ファルコンS 2026</h1>
   <div class="race-meta">
-    <span class="grade-badge g3">GIII</span>
-    2026年3月21日（土） ／ 中京11R ／ 芝1400m 3歳
+    <span class="grade-badge">G3</span>
+    中京 芝1400m G3 3歳 17頭立て
   </div>
 </header>
 
-<div class="page-wrapper">
-<div class="tab-card">
-
-<!-- タブ -->
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('yoso')">予想</button>
   <button class="tab-btn" onclick="switchTab('kaimoku')">買い目</button>
   <button class="tab-btn" onclick="switchTab('trend')">傾向分析</button>
 </div>
 
-<!-- ========== 予想タブ ========== -->
+<!-- 予想タブ -->
 <div id="tab-yoso" class="tab-content active">
-
   <div class="card">
-    <h2>予想印（ルールベース）</h2>
+    <h2>予想印（ルールベース＋ML統合）</h2>
     <div class="horse-list">
 
       <div class="horse-row row-honmei">
@@ -43,330 +121,102 @@
         <div class="horse-num">6</div>
         <div class="horse-info">
           <div class="horse-name">ハッピーエンジェル</div>
-          <div class="horse-sub">騎手: 三浦皇成(B) ／ 3枠（最強枠）</div>
-          <div class="horse-sub">3枠最強枠 × 前走クロッカスS2着（7番人気から大駆け）× 6番人気16.1倍割安。ジョーカプチーノ産駒の1400m適性◎</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">3枠最強枠 × 前走クロッカスS2着（前哨戦直結）× 6番人気16.1倍割安 × ジョーカプチーノ産駒の1400m適性</div>
         </div>
-        <div class="horse-odds">16.1倍<small>6番人気</small></div>
+        <div class="horse-odds">三浦皇成</div>
       </div>
-
       <div class="horse-row row-taiko">
         <span class="badge badge-taiko">○</span>
         <div class="horse-num">7</div>
         <div class="horse-info">
           <div class="horse-name">フクチャンショウ</div>
-          <div class="horse-sub">騎手: 横山武史(A) ／ 4枠</div>
-          <div class="horse-sub">前走クロッカスS3着 × 2走前京王杯2歳S2着（8番人気！）の実力 × 横山武史A騎手 × 3番人気適正評価</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">前走クロッカスS3着 × 2走前京王杯2歳S2着の実力 × 横山武史A騎手 × 3番人気適正評価</div>
         </div>
-        <div class="horse-odds">—<small>3番人気</small></div>
+        <div class="horse-odds">横山武史</div>
       </div>
-
       <div class="horse-row row-santen">
         <span class="badge badge-santen">▲</span>
         <div class="horse-num">9</div>
         <div class="horse-info">
           <div class="horse-name">ダイヤモンドノット</div>
-          <div class="horse-sub">騎手: 川田将雅(S) ／ 5枠</div>
-          <div class="horse-sub">前走朝日FS2着（GI）・2走前京王杯2歳S1着で実力最上位。川田S評価。ただし1番人気は10年0勝の鬼門。2〜3着候補</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">前走GI2着の実力最上位 × 川田S評価。ただし1番人気の呪い（10年0勝）あり。2〜3着狙い</div>
         </div>
-        <div class="horse-odds">—<small>1番人気</small></div>
+        <div class="horse-odds">川田将雅</div>
       </div>
-
       <div class="horse-row row-tanko">
         <span class="badge badge-tanko">△</span>
         <div class="horse-num">17</div>
         <div class="horse-info">
           <div class="horse-name">タマモイカロス</div>
-          <div class="horse-sub">騎手: 小沢大仁 ／ 8枠</div>
-          <div class="horse-sub">前走マーガレットS1着（L・1200m）× 連続好走型 × 5番人気13.2倍割安。距離延長と騎手変更（藤岡→小沢）がマイナス</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">前走1200mL勝利 × 連続好走型 × 5番人気13.2倍割安。距離延長と騎手変更がマイナス</div>
         </div>
-        <div class="horse-odds">13.2倍<small>5番人気</small></div>
+        <div class="horse-odds">小沢大仁</div>
       </div>
-
       <div class="horse-row row-tanko">
         <span class="badge badge-tanko">△</span>
         <div class="horse-num">2</div>
         <div class="horse-info">
           <div class="horse-name">メイクワンズデイ</div>
-          <div class="horse-sub">騎手: 松若風馬(B) ／ 1枠</div>
-          <div class="horse-sub">逃げ馬・1枠の有利な枠 × 前走1勝クラス2着（1番人気）。先行有利な展開になれば粘りに期待</div>
+          <div class="horse-sub">騎手: ()</div>
+          <div class="horse-sub">逃げ馬・1枠の有利な枠 × 前走1勝クラス2着。先行有利な展開になれば粘りに期待</div>
         </div>
-        <div class="horse-odds">—<small>9番人気</small></div>
+        <div class="horse-odds">松若風馬</div>
       </div>
-
     </div>
   </div>
-
-  <!-- 過去傾向との照合 -->
   <div class="card">
-    <h2>過去傾向との照合</h2>
-    <table class="data-table">
-      <thead>
-        <tr><th>パターン</th><th>該当馬</th><th>信頼度</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>3枠が圧倒的優位（10年8頭入着・26.7%）</td><td>⑤アスミル・⑥ハッピーエンジェル（3枠）</td><td class="pop1">◎ 高</td></tr>
-        <tr><td>6枠は完全鬼門（10年0回）</td><td>⑪タガノアラリア・⑫プルヴォワール → 完全消し</td><td class="pop1">◎ 高</td></tr>
-        <tr><td>1番人気は10年連続未勝利</td><td>⑨ダイヤモンドノット（1番人気）→ 消し（2〜3着は有り）</td><td class="pop1">◎ 高</td></tr>
-        <tr><td>前走1400mOP好走（クロッカスS）が直結</td><td>⑦フクチャンショウ（3着）・⑥ハッピーエンジェル（2着）</td><td class="pop2">○ 中</td></tr>
-        <tr><td>3番人気前後が軸候補（最多4勝）</td><td>⑦フクチャンショウ（3番人気）</td><td class="pop2">○ 中</td></tr>
-        <tr><td>8枠は1着2回実績あり（2019、2024）</td><td>⑰タマモイカロス（8枠）</td><td class="pop2">○ 中</td></tr>
-      </tbody>
-    </table>
+    <h2>全出走馬オッズ</h2>
+    
   </div>
-
-  <!-- 全出走馬評価テーブル -->
-  <div class="card">
-    <h2>全出走馬の評価</h2>
-    <table class="data-table">
-      <thead>
-        <tr><th>馬番</th><th>馬名</th><th>枠</th><th>人気</th><th>騎手</th><th>評価</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>①</td><td>カフェラバー</td><td>1枠</td><td>8番</td><td>舟山</td><td>△下</td></tr>
-        <tr><td>②</td><td>メイクワンズデイ</td><td>1枠</td><td>9番</td><td>松若風馬</td><td class="pop2">△</td></tr>
-        <tr><td>③</td><td>トライアンフパス</td><td>2枠</td><td>13番</td><td>国分恭介</td><td>✕</td></tr>
-        <tr><td>④</td><td>タイセイアストロ</td><td>2枠</td><td class="pop2">2番</td><td>杉原</td><td class="pop2">△</td></tr>
-        <tr><td>⑤</td><td>アスミル</td><td>3枠</td><td>15番</td><td>太宰啓介</td><td>△下</td></tr>
-        <tr><td>⑥</td><td>ハッピーエンジェル</td><td>3枠</td><td>6番</td><td>三浦皇成</td><td class="pop1"><strong>◎</strong></td></tr>
-        <tr><td>⑦</td><td>フクチャンショウ</td><td>4枠</td><td>3番</td><td>横山武史</td><td class="pop1"><strong>○</strong></td></tr>
-        <tr><td>⑧</td><td>マーゴットブロー</td><td>4枠</td><td>14番</td><td>横山典弘</td><td>✕</td></tr>
-        <tr><td>⑨</td><td>ダイヤモンドノット</td><td>5枠</td><td class="pop1">1番</td><td>川田将雅</td><td class="pop2"><strong>▲</strong></td></tr>
-        <tr><td>⑩</td><td>エイシンディード</td><td>5枠</td><td>7番</td><td>川又</td><td>△下</td></tr>
-        <tr><td>⑪</td><td>タガノアラリア</td><td>6枠</td><td>4番</td><td>斎藤</td><td style="color:#c00;font-weight:bold;">✕消</td></tr>
-        <tr><td>⑫</td><td>プルヴォワール</td><td>6枠</td><td>17番</td><td>長岡</td><td>✕消</td></tr>
-        <tr><td>⑬</td><td>プリンセスモコ</td><td>7枠</td><td>10番</td><td>西塚</td><td>△下</td></tr>
-        <tr><td>⑭</td><td>フォーゲル</td><td>7枠</td><td>11番</td><td>吉村</td><td>△下</td></tr>
-        <tr><td>⑮</td><td>テルヴィセクス</td><td>8枠</td><td>12番</td><td>団野大成</td><td class="pop2">△</td></tr>
-        <tr><td>⑯</td><td>タヤスロレンヌ</td><td>8枠</td><td>16番</td><td>江田照男</td><td>✕</td></tr>
-        <tr><td>⑰</td><td>タマモイカロス</td><td>8枠</td><td>5番</td><td>小沢大仁</td><td class="pop2"><strong>△</strong></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- 騎手評価 -->
-  <div class="card">
-    <h2>主要騎手評価</h2>
-    <table class="data-table">
-      <thead>
-        <tr><th>騎手</th><th>勝率</th><th>複勝率</th><th>評価</th><th>対象馬</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>川田将雅</td><td>25.8%</td><td>55.6%</td><td class="pop1"><strong>S</strong></td><td>⑨ダイヤモンドノット</td></tr>
-        <tr><td>横山武史</td><td>13.6%</td><td>36.2%</td><td class="pop2"><strong>A</strong></td><td>⑦フクチャンショウ</td></tr>
-        <tr><td>三浦皇成</td><td>8.8%</td><td>27.4%</td><td>B</td><td>⑥ハッピーエンジェル</td></tr>
-        <tr><td>松若風馬</td><td>―</td><td>―</td><td>B</td><td>②メイクワンズデイ</td></tr>
-        <tr><td>団野大成</td><td>―</td><td>―</td><td>B</td><td>⑮テルヴィセクス</td></tr>
-        <tr><td>太宰啓介</td><td>―</td><td>―</td><td>C</td><td>⑤アスミル</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p class="note" style="margin: 0 0 20px;">
-    ※本予想はルールベース傾向分析（過去10年）＋騎手成績データによるAI予想です。調教・当日馬場状態は含まれません。オッズは2026-03-21時点の中間オッズです（締切前に変動します）。馬券は自己責任でお楽しみください。
+  <p class="note" style="margin:0 0 20px;">
+    ※本予想はルールベース傾向分析（過去10年）＋LightGBM機械学習モデル＋騎手成績データによるAI予想です。
+    調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
   </p>
 </div>
 
-<!-- ========== 買い目タブ ========== -->
+<!-- 買い目タブ -->
 <div id="tab-kaimoku" class="tab-content">
-
   <div class="card">
-    <h2>推奨買い目（◎⑥ハッピーエンジェル軸）</h2>
-    <h3>メインライン（◎軸）</h3>
-    <table class="bet-table">
-      <thead>
-        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><span class="bet-type">馬連</span></td><td>⑥ー⑦</td><td>◎-○ メインライン（3枠×クロッカスS好走）</td></tr>
-        <tr><td><span class="bet-type">馬連</span></td><td>⑥ー⑨</td><td>◎-▲（本命×実力最上位）</td></tr>
-        <tr><td><span class="bet-type">馬連</span></td><td>⑥ー⑰</td><td>◎-△（穴狙い）</td></tr>
-        <tr><td><span class="bet-type">3連複</span></td><td>⑥ー⑦ー⑨</td><td>◎○▲ 本命3頭</td></tr>
-        <tr><td><span class="bet-type">3連複</span></td><td>⑥ー⑦ー⑰</td><td>穴目</td></tr>
-        <tr><td><span class="bet-type">ワイド</span></td><td>⑥ー⑦</td><td>手堅く</td></tr>
-      </tbody>
-    </table>
-    <h3 style="margin-top:16px;">保険ライン（◎が飛んだ時用）</h3>
-    <table class="bet-table">
-      <thead>
-        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><span class="bet-type">馬連</span></td><td>⑦ー⑨</td><td>○-▲</td></tr>
-        <tr><td><span class="bet-type">馬連</span></td><td>⑦ー⑰</td><td>○-△（穴目）</td></tr>
-        <tr><td><span class="bet-type">3連複</span></td><td>⑦ー⑨ー⑰</td><td>○-▲-△</td></tr>
-      </tbody>
-    </table>
+    <h2>推奨買い目</h2>
+    <table class="bet-table"><thead><tr><th>式別</th><th>内容</th><th>狙い</th></tr></thead><tbody><tr><td><span class="bet-type">馬連</span></td><td>6-7、6-9、6-17</td><td>◎軸・相手○▲△</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>7-9、7-17</td><td>○軸・相手▲△</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>6-7-9 ボックス</td><td>本命3頭</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>6-7-17</td><td>穴目</td></tr>
+<tr><td><span class="bet-type">ワイド</span></td><td>6-7</td><td>手堅く</td></tr>
+</tbody></table>
   </div>
-
   <div class="card">
     <h2>総評</h2>
-    <p style="font-size:14px; line-height:1.8;">
-      <strong>◎ハッピーエンジェル（⑥番）が3枠×前哨戦直結で本命。</strong><br>
-      過去10年で3枠は8頭入着（26.7%）と圧倒的最強枠。前走クロッカスS2着は前哨戦→本番の直結パターンに合致。6番人気16.1倍という割安感もあり、期待値最大の1頭。
-    </p>
-    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
-      <strong>○フクチャンショウ（⑦番）は実力・騎手・臨戦過程すべて合致。</strong><br>
-      前走クロッカスS3着・2走前京王杯2歳S2着（8番人気！）という実力馬。横山武史A評価で3番人気は適正評価。◎との馬連が最も堅いライン。
-    </p>
-    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
-      <strong>▲ダイヤモンドノット（⑨番）は1着は消し、2〜3着は有り。</strong><br>
-      前走朝日FS2着のGI好走馬で実力は最上位・川田将雅S評価だが、1番人気は10年連続未勝利という鬼門に当たる。単勝は買わず馬連・3連複の相手として使う。
-    </p>
-    <p style="font-size:12px; color:#888; margin-top:12px;">
-      ⑪タガノアラリア（6枠・4番人気）は完全消し。過去10年で6枠は1頭も3着以内なし。4番人気は過大評価。
-    </p>
+    
   </div>
-
 </div>
 
-<!-- ========== 傾向分析タブ ========== -->
+<!-- 傾向分析タブ -->
 <div id="tab-trend" class="tab-content">
-
   <div class="card">
-    <h2>過去10年の結果</h2>
-    <table class="data-table">
-      <thead>
-        <tr><th>年</th><th>1着</th><th>人気</th><th>2着</th><th>人気</th><th>3着</th><th>人気</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2025</td><td>ヤンキーバローズ</td><td>3番</td><td>モンドデラモーレ</td><td>6番</td><td>リリーフィールド</td><td>13番</td></tr>
-        <tr><td>2024</td><td>ダノンマッキンリー</td><td>7番</td><td>オーキッドロマンス</td><td>5番</td><td>ソンシ</td><td class="pop1">1番</td></tr>
-        <tr><td>2023</td><td>タマモブラックタイ</td><td>8番</td><td>カルロヴェローチェ</td><td class="pop1">1番</td><td>サウザンサニー</td><td>14番</td></tr>
-        <tr><td>2022</td><td>プルパレイ</td><td class="pop2">2番</td><td>タイセイディバイン</td><td>13番</td><td>オタルエバー</td><td>6番</td></tr>
-        <tr><td>2021</td><td>ルークズネスト</td><td>3番</td><td>グレナディアガーズ</td><td class="pop1">1番</td><td>モントライゼ</td><td class="pop2">2番</td></tr>
-        <tr><td>2020</td><td>シャインガーネット</td><td>6番</td><td>ラウダシオン</td><td class="pop1">1番</td><td>ヴェスターヴァルト</td><td>8番</td></tr>
-        <tr><td>2019</td><td>ハッピーアワー</td><td>4番</td><td>グルーヴィット</td><td>3番</td><td>ローゼンクリーガー</td><td class="pop2">2番</td></tr>
-        <tr><td>2018</td><td>ミスターメロディ</td><td>3番</td><td>アサクサゲンキ</td><td>7番</td><td>フロンティア</td><td>5番</td></tr>
-        <tr><td>2017</td><td>コウソクストレート</td><td>3番</td><td>ボンセルヴィーソ</td><td class="pop2">2番</td><td>メイソンジュニア</td><td>6番</td></tr>
-        <tr><td>2016</td><td>トウショウドラフタ</td><td class="pop2">2番</td><td>ブレイブスマッシュ</td><td>3番</td><td>シゲルノコギリザメ</td><td>9番</td></tr>
-      </tbody>
-    </table>
+    <h2>過去の結果</h2>
+    <p>データなし</p>
   </div>
-
-  <div class="card">
-    <h2>人気・オッズ傾向</h2>
-    <h3>1着馬の人気分布</h3>
-    <table class="data-table">
-      <thead><tr><th>人気</th><th>回数</th><th>年度</th></tr></thead>
-      <tbody>
-        <tr><td class="pop2">2番人気</td><td>2回</td><td>2016、2022</td></tr>
-        <tr><td>3番人気</td><td>4回</td><td>2017、2018、2021、2025</td></tr>
-        <tr><td>4番人気</td><td>1回</td><td>2019</td></tr>
-        <tr><td>6番人気</td><td>1回</td><td>2020</td></tr>
-        <tr><td>7番人気</td><td>1回</td><td>2024</td></tr>
-        <tr><td>8番人気</td><td>1回</td><td>2023</td></tr>
-      </tbody>
-    </table>
-    <h3>1番人気の成績（10年）</h3>
-    <ul class="rule-list">
-      <li style="color:#c00;font-weight:bold;">1着: 0回（10年連続で未勝利！）</li>
-      <li>2着: 3回（2020、2021、2023）</li>
-      <li>3着: 1回（2024）</li>
-      <li>4着以下: 6回</li>
-      <li><strong>荒れやすさ: 非常に荒れやすい</strong> — 3番人気が最多4勝。1番人気軸は危険</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>枠番傾向</h2>
-    <table class="data-table">
-      <thead><tr><th>枠</th><th>1着</th><th>2着</th><th>3着</th><th>計</th><th>割合</th></tr></thead>
-      <tbody>
-        <tr><td>1枠</td><td>2</td><td>0</td><td>2</td><td>4</td><td>13.3%</td></tr>
-        <tr><td>2枠</td><td>0</td><td>2</td><td>0</td><td>2</td><td>6.7%</td></tr>
-        <tr style="background:#fff9e6;font-weight:bold;"><td>3枠 ★</td><td>3</td><td>3</td><td>2</td><td>8</td><td class="pop1">26.7%</td></tr>
-        <tr><td>4枠</td><td>1</td><td>1</td><td>1</td><td>3</td><td>10.0%</td></tr>
-        <tr><td>5枠</td><td>2</td><td>2</td><td>1</td><td>5</td><td class="pop2">16.7%</td></tr>
-        <tr style="background:#fff0f0;"><td>6枠 ✕</td><td style="color:#c00;font-weight:bold;">0</td><td style="color:#c00;font-weight:bold;">0</td><td style="color:#c00;font-weight:bold;">0</td><td style="color:#c00;font-weight:bold;">0</td><td style="color:#c00;font-weight:bold;">0%</td></tr>
-        <tr><td>7枠</td><td>0</td><td>3</td><td>2</td><td>5</td><td class="pop2">16.7%</td></tr>
-        <tr><td>8枠</td><td>2</td><td>1</td><td>0</td><td>3</td><td>10.0%</td></tr>
-      </tbody>
-    </table>
-    <ul class="rule-list" style="margin-top:10px;">
-      <li><strong>3枠が圧倒的優位</strong>（10年8頭入着・26.7%） — 信頼度：高</li>
-      <li style="color:#c00;font-weight:bold;"><strong>6枠は完全鬼門（10年0回）</strong> — 信頼度：高</li>
-      <li>内枠（1〜3枠）合計: 14/30 = 46.7%で優位</li>
-      <li>7枠は2・3着には入るが1着がない（勝ちきれない傾向）</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>前走・臨戦過程の傾向</h2>
-    <h3>狙える臨戦過程</h3>
-    <ul class="rule-list">
-      <li><strong>前走1400mOP/L好走（クロッカスSなど）からの直行</strong> — 最も直結しやすい（信頼度：中）</li>
-      <li><strong>前走GII・GI好走（2〜5着）</strong> — 高グレード好走からの臨戦も有力</li>
-      <li>前走1200mからの距離延長 — 距離対応力が問われる</li>
-      <li>前走惨敗でも2〜3走前に好走歴あり（叩き台型も度々出現）</li>
-    </ul>
-    <h3>消しの条件</h3>
-    <ul class="rule-list">
-      <li>前走未勝利クラスから格上げ（勝っていても格が低い）</li>
-      <li>前走大幅体重増減（±15kg超）</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>血統傾向</h2>
-    <ul class="rule-list">
-      <li><strong>サンデーサイレンス系（フジキセキ、ディープ系含む）が主力</strong></li>
-      <li>母父スウェプト系・エンドスウィープ系、Storm Cat系との組み合わせが好走</li>
-      <li>Danzig系（War Front等）— 短距離スピード型</li>
-    </ul>
-    <h3>今年の注目血統</h3>
-    <table class="data-table">
-      <thead><tr><th>馬名</th><th>父</th><th>母父</th><th>評価</th></tr></thead>
-      <tbody>
-        <tr><td>ダイヤモンドノット</td><td>ブリックスアンドモルタル（Storm Cat系）</td><td>ディープインパクト</td><td class="pop2">GI・GII好走クラス</td></tr>
-        <tr><td>ハッピーエンジェル</td><td>ジョーカプチーノ（SS系）</td><td>エンドスウィープ</td><td class="pop1">1400m向きスピード血統◎</td></tr>
-        <tr><td>フクチャンショウ</td><td>イスラボニータ（フジキセキ系・SS）</td><td>キングマンボ系</td><td class="pop2">1400〜1600m向き</td></tr>
-        <tr><td>タマモイカロス</td><td>デクラレーションオブウォー（Danzig・War Front系）</td><td>ダンスインザダーク</td><td>1200m特化型・距離延長リスク</td></tr>
-      </tbody>
-    </table>
-    <ul class="rule-list" style="margin-top:10px;">
-      <li>中京1400mはスピードと持続力両方求められるコース</li>
-      <li>サンデーサイレンス系×スピード血統（北米・Danzig系）の組み合わせが有利</li>
-      <li>純粋な1200m型（Danzig系単体）は距離延長リスクあり</li>
-    </ul>
-  </div>
-
   <div class="card">
     <h2>法則まとめ</h2>
-    <table class="data-table">
-      <thead><tr><th>観点</th><th>傾向</th><th>信頼度</th></tr></thead>
-      <tbody>
-        <tr><td>人気</td><td><strong>1番人気は10年0勝（過信禁物）</strong></td><td class="pop1">高</td></tr>
-        <tr><td>人気</td><td>3番人気が最多4勝（最も信頼できる人気帯）</td><td class="pop1">高</td></tr>
-        <tr><td>枠番</td><td><strong>3枠が圧倒的優位（26.7%入着）</strong></td><td class="pop1">高</td></tr>
-        <tr><td>枠番</td><td><strong>6枠は完全鬼門（0回）</strong></td><td class="pop1">高</td></tr>
-        <tr><td>前走</td><td>1400mOP〜重賞好走馬が直結しやすい</td><td class="pop2">中</td></tr>
-        <tr><td>血統</td><td>SS系×スピード血統（北米）が好相性</td><td class="pop2">中</td></tr>
-        <tr><td>馬体重</td><td>大幅増減（±15kg超）は割引</td><td class="pop2">中</td></tr>
-      </tbody>
-    </table>
+    <p>データなし</p>
   </div>
-
-  <div class="card">
-    <h2>予想への応用</h2>
-    <ul class="rule-list">
-      <li><strong>1番人気は軸にしない</strong>: 過去10年で1勝もなく、2〜3着どまりが多い</li>
-      <li><strong>3枠の馬を優先</strong>: 特に3枠内の実力上位馬に注目</li>
-      <li><strong>6枠の馬は消し候補</strong>: 10年間で完全に入着なし</li>
-      <li>前走クロッカスS（1400m）好走組を狙う: 前哨戦→本番の直結傾向</li>
-      <li>3番人気前後（2〜5番人気）が最も安全な軸候補</li>
-      <li>穴は7〜8番人気以上の中穴に出やすい（13番人気2着が2022・2025に出現）</li>
-    </ul>
-  </div>
-
-  <p class="note" style="margin: 0 0 20px;">
-    ※分析対象: 2016〜2025年（10年分）。中京 芝1400m G3 3歳。生成日: 2026-03-21
+  <p class="note" style="margin:0 0 20px;">
+    ※分析対象: 過去10年分。
   </p>
 </div>
 
-</div><!-- /tab-card -->
-</div><!-- /page-wrapper -->
-
-<script src="../js/race.js"></script>
-
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
 </body>
 </html>
