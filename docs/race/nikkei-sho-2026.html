@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/race.css">
   <title>日経賞 2026 AI予想 | 競馬予想サイト</title>
+  <link rel="stylesheet" href="../css/race.css">
 </head>
 <body>
 
@@ -17,158 +17,390 @@
   <h1>日経賞 2026</h1>
   <div class="race-meta">
     <span class="grade-badge g2">GII</span>
-    中山 芝2500m GII（右回り外回り）
+    2026年3月28日（土） 中山11R ／ 芝2500m（右回り外回り）
   </div>
 </header>
 
 <div class="page-wrapper">
 <div class="tab-card">
 
+<!-- タブ -->
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('yoso')">予想</button>
   <button class="tab-btn" onclick="switchTab('kaimoku')">買い目</button>
   <button class="tab-btn" onclick="switchTab('trend')">傾向分析</button>
 </div>
 
-<!-- 予想タブ -->
+<!-- ========== 予想タブ ========== -->
 <div id="tab-yoso" class="tab-content active">
+
   <div class="card">
     <h2>予想印（ルールベース＋ML統合）</h2>
     <div class="horse-list">
 
+      <!-- ◎ 本命 -->
       <div class="horse-row row-honmei">
         <span class="badge badge-honmei">◎</span>
         <div class="horse-num">7</div>
         <div class="horse-info">
           <div class="horse-name">コスモキュランダ</div>
-          <div class="horse-sub">騎手: 横山武史(A)</div>
-          <div class="horse-sub">有馬記念2着→日経賞（3/3高信頼）× ML単複両方△</div>
+          <div class="horse-sub">騎手: 横山武史(A) ／ ML単: 0.611（2位） ／ ML複: 0.591（1位）</div>
+          <div class="horse-sub">有馬記念2着→日経賞（3/3高信頼）× ML単複両方△。馬体重520(-2)安定</div>
         </div>
-        <div class="horse-odds">3.3倍</div>
+        <div class="horse-odds">3.3倍<small>1番人気</small></div>
       </div>
+
+      <!-- ○ 対抗 -->
       <div class="horse-row row-taiko">
         <span class="badge badge-taiko">○</span>
         <div class="horse-num">1</div>
         <div class="horse-info">
           <div class="horse-name">ミクニインスパイア</div>
-          <div class="horse-sub">騎手: 丹内祐次(B)</div>
-          <div class="horse-sub">条件戦1着パターン完全合致・中山2500m2連勝（MLは低評価）</div>
+          <div class="horse-sub">騎手: 丹内祐次(B) ／ ML単: 0.400 ／ ML複: 0.413</div>
+          <div class="horse-sub">条件戦1着パターン完全合致・中山2500m2連勝。馬体重504(-4)正常範囲</div>
         </div>
-        <div class="horse-odds">3.7倍</div>
+        <div class="horse-odds">3.7倍<small>2番人気</small></div>
       </div>
+
+      <!-- ▲ 単穴 -->
       <div class="horse-row row-santen">
         <span class="badge badge-santen">▲</span>
         <div class="horse-num">14</div>
         <div class="horse-info">
           <div class="horse-name">ローシャムパーク</div>
-          <div class="horse-sub">騎手: C.ルメール(S)</div>
-          <div class="horse-sub">ルメールS×ML単複△整合・ハービンジャー血統</div>
+          <div class="horse-sub">騎手: C.ルメール(S) ／ ML単: 0.576（3位） ／ ML複: 0.547（3位）</div>
+          <div class="horse-sub">ルメールS×ML単複△整合・ハービンジャー血統。馬体重506(+8)良化サイン</div>
         </div>
-        <div class="horse-odds">6.5倍</div>
+        <div class="horse-odds">6.5倍<small>3番人気</small></div>
       </div>
+
+      <!-- △ 連下1 -->
       <div class="horse-row row-tanko">
         <span class="badge badge-tanko">△</span>
         <div class="horse-num">10</div>
         <div class="horse-info">
           <div class="horse-name">シャイニングソード</div>
-          <div class="horse-sub">騎手: 西村淳也(B)</div>
-          <div class="horse-sub">ML単スコア全馬中1位・日経新春杯前走パターン有</div>
+          <div class="horse-sub">騎手: 西村淳也(B) ／ ML単: 0.623（全馬中1位！） ／ ML複: 0.535</div>
+          <div class="horse-sub">ML単スコア最高位・日経新春杯前走パターン有。馬体重518(-6)正常範囲</div>
         </div>
-        <div class="horse-odds">13.6倍</div>
+        <div class="horse-odds">13.6倍<small>5番人気</small></div>
       </div>
+
+      <!-- △ 連下2 -->
       <div class="horse-row row-tanko">
         <span class="badge badge-tanko">△</span>
         <div class="horse-num">4</div>
         <div class="horse-info">
           <div class="horse-name">エヒト</div>
-          <div class="horse-sub">騎手: 川田将雅(S)</div>
-          <div class="horse-sub">AJCC14人気3着激走・川田S評価・ML複△</div>
+          <div class="horse-sub">騎手: 川田将雅(S) ／ ML単: 0.553（4位） ／ ML複: 0.560（2位）</div>
+          <div class="horse-sub">AJCC14人気3着激走・川田S評価・ML複△。馬体重470(-6)やや軽め注意</div>
         </div>
-        <div class="horse-odds">31.6倍</div>
+        <div class="horse-odds">31.6倍<small>9番人気</small></div>
       </div>
+
     </div>
   </div>
+
+  <!-- 過去傾向との照合 -->
   <div class="card">
-    <h2>全出走馬オッズ</h2>
-    <table class="data-table"><thead><tr><th>馬番</th><th>人気</th><th>単勝オッズ</th><th>複勝下限</th><th>馬名</th></tr></thead><tbody><tr><td>7</td><td>1</td><td>3.3倍</td><td>1.3</td><td>コスモキュランダ</td></tr>
-<tr><td class="pop1">1</td><td>2</td><td>3.7倍</td><td>1.6</td><td>ミクニインスパイア</td></tr>
-<tr><td>14</td><td>3</td><td>6.5倍</td><td>2.0</td><td>ローシャムパーク</td></tr>
-<tr><td>15</td><td>4</td><td>6.9倍</td><td>1.9</td><td>マイユニバース</td></tr>
-<tr><td>10</td><td>5</td><td>13.6倍</td><td>2.8</td><td>シャイニングソード</td></tr>
-<tr><td>12</td><td>6</td><td>15.9倍</td><td>5.1</td><td>チャックネイト</td></tr>
-<tr><td>5</td><td>7</td><td>18.5倍</td><td>3.6</td><td>アスクナイスショー</td></tr>
-<tr><td>11</td><td>8</td><td>21.5倍</td><td>4.6</td><td>ミステリーウェイ</td></tr>
-<tr><td>4</td><td>9</td><td>31.6倍</td><td>4.9</td><td>エヒト</td></tr>
-<tr><td>3</td><td>10</td><td>32.3倍</td><td>5.5</td><td>クリスマスパレード</td></tr>
-<tr><td>9</td><td>11</td><td>37.0倍</td><td>5.0</td><td>マイネルケレリウス</td></tr>
-<tr><td>6</td><td>12</td><td>41.4倍</td><td>5.3</td><td>リビアングラス</td></tr>
-<tr><td class="pop2">2</td><td>13</td><td>60.4倍</td><td>7.4</td><td>ホールネス</td></tr>
-<tr><td>13</td><td>14</td><td>60.1倍</td><td>6.1</td><td>ブレイヴロッカー</td></tr>
-<tr><td>8</td><td>15</td><td>224.2倍</td><td>26.8</td><td>ホウオウノーサイド</td></tr>
-</tbody></table>
+    <h2>過去傾向との照合</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>パターン</th><th>該当馬</th><th>信頼度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>有馬記念好走→日経賞（前走着順不問）</td><td>⑦コスモキュランダ（前走有馬記念2着・12番人気激走）</td><td class="pop1">高（3/3）</td></tr>
+        <tr><td>条件戦（3勝クラス）直前1着→中山2500m直行</td><td>①ミクニインスパイア（前走グレイトフルS中山2500m1着）</td><td class="pop1">高（2018ガンコ・2024シュトルーヴェ同パターン）</td></tr>
+        <tr><td>条件戦直前1着→中山2500m</td><td>⑮マイユニバース（前走湾岸S中山2500m1着）</td><td>中（3週間隔・外枠・馬体重-12が懸念）</td></tr>
+        <tr><td>リピーター（前年2着）</td><td>⑫チャックネイト（2025年日経賞2着）</td><td>中（前走AJCC13着大敗・MLスコア低い）</td></tr>
+        <tr><td>AJCC好走→日経賞</td><td>④エヒト（前走AJCC3着・14番人気激走）</td><td>中（過去パターンあり、ただし9歳）</td></tr>
+        <tr><td>ハービンジャー系×S評価騎手</td><td>⑭ローシャムパーク（ルメール）</td><td>中（血統適性◎・馬体重良化・近3走不振）</td></tr>
+      </tbody>
+    </table>
   </div>
-  <p class="note" style="margin:0 0 20px;">
-    ※本予想はルールベース傾向分析（過去10年）＋LightGBM機械学習モデル＋騎手成績データによるAI予想です。
-    調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
+
+  <!-- 全出走馬評価テーブル -->
+  <div class="card">
+    <h2>全出走馬の評価</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>馬番</th><th>馬名</th><th>単勝</th><th>馬体重</th><th>ML単</th><th>ML複</th><th>騎手</th><th>騎手評価</th><th>統合印</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>ミクニインスパイア</td><td>3.7倍</td><td>504(-4)</td><td>0.400</td><td>0.413</td><td>丹内祐次</td><td>B</td><td class="pop2">○</td></tr>
+        <tr><td>2</td><td>ホールネス</td><td>60.4倍</td><td>538(+4)</td><td>0.229</td><td>0.271</td><td>M.ディー</td><td>C</td><td>消</td></tr>
+        <tr><td>3</td><td>クリスマスパレード</td><td>32.3倍</td><td>462(-2)</td><td>0.239</td><td>0.248</td><td>石川裕紀人</td><td>B</td><td>消</td></tr>
+        <tr><td>4</td><td>エヒト</td><td>31.6倍</td><td>470(-6)</td><td>0.553</td><td>0.560 △</td><td>川田将雅</td><td>S</td><td>△</td></tr>
+        <tr><td>5</td><td>アスクナイスショー</td><td>18.5倍</td><td>502(-6)</td><td>0.416</td><td>0.390</td><td>田辺裕信</td><td>C</td><td>—</td></tr>
+        <tr><td>6</td><td>リビアングラス</td><td>41.4倍</td><td>496(+2)</td><td>0.427</td><td>0.404</td><td>三浦皇成</td><td>C</td><td>—</td></tr>
+        <tr><td>7</td><td>コスモキュランダ</td><td>3.3倍</td><td>520(-2)</td><td>0.611 △</td><td>0.591 △</td><td>横山武史</td><td>A</td><td class="pop1">◎</td></tr>
+        <tr><td>8</td><td>ホウオウノーサイド</td><td>224.2倍</td><td>484(-4)</td><td>0.174</td><td>0.145</td><td>杉原誠人</td><td>C</td><td>消</td></tr>
+        <tr><td>9</td><td>マイネルケレリウス</td><td>37.0倍</td><td>442(+4)</td><td>0.341</td><td>0.362</td><td>松岡正海</td><td>B</td><td>—</td></tr>
+        <tr><td>10</td><td>シャイニングソード</td><td>13.6倍</td><td>518(-6)</td><td><strong>0.623 △</strong></td><td>0.535</td><td>西村淳也</td><td>B</td><td>△</td></tr>
+        <tr><td>11</td><td>ミステリーウェイ</td><td>21.5倍</td><td>500(0)</td><td>0.174</td><td>0.187</td><td>松本大輝</td><td>C</td><td>—</td></tr>
+        <tr><td>12</td><td>チャックネイト</td><td>15.9倍</td><td>494(+2)</td><td>0.224</td><td>0.288</td><td>大野拓弥</td><td>C</td><td>—</td></tr>
+        <tr><td>13</td><td>ブレイヴロッカー</td><td>60.1倍</td><td>458(+8)</td><td>0.267</td><td>0.361</td><td>荻野極</td><td>C</td><td>—</td></tr>
+        <tr><td>14</td><td>ローシャムパーク</td><td>6.5倍</td><td>506(+8)</td><td>0.576 △</td><td>0.547 △</td><td>C.ルメール</td><td>S</td><td>▲</td></tr>
+        <tr><td>15</td><td>マイユニバース</td><td>6.9倍</td><td>468(-12)</td><td>0.452</td><td>0.531</td><td>横山典弘</td><td>C</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:#999; margin-top:8px;">△ = 上位スコアだが閾値未達（今回は全馬閾値未達のため相対比較）。閾値目安: 単0.63 / 複0.62。</p>
+  </div>
+
+  <!-- ML穴馬候補 -->
+  <div class="card">
+    <h2>ML穴馬候補</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>馬番</th><th>馬名</th><th>単勝オッズ</th><th>ML単</th><th>ML複</th><th>騎手</th><th>コメント</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10</td><td>シャイニングソード</td><td>13.6倍</td><td><strong>0.623（1位）</strong></td><td>0.535</td><td>西村淳也(B)</td><td>ML単スコア全馬中最高。前走大敗が人気を抑制。日経新春杯前走パターン（2017・2025年）有</td></tr>
+        <tr><td>4</td><td>エヒト</td><td>31.6倍</td><td>0.553（4位）</td><td>0.560（2位）</td><td>川田将雅(S)</td><td>ML複スコア2位。川田S評価×AJCC14人気3着激走。9歳が唯一の不安材料</td></tr>
+        <tr><td>14</td><td>ローシャムパーク</td><td>6.5倍</td><td>0.576（3位）</td><td>0.547（3位）</td><td>C.ルメール(S)</td><td>ルール▲×ML△×ルメールSの三重担保。馬体重+8kgの良化サイン</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="note" style="margin: 0 0 20px;">
+    ※本予想はルールベース傾向分析（過去10年）＋LightGBMモデル（20260326学習済み）＋騎手成績データ（直近3年）によるAI統合予想です。調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
   </p>
 </div>
 
-<!-- 買い目タブ -->
+<!-- ========== 買い目タブ ========== -->
 <div id="tab-kaimoku" class="tab-content">
+
   <div class="card">
-    <h2>推奨買い目</h2>
-    <p>買い目データなし</p>
+    <h2>推奨買い目（◎⑦コスモキュランダ軸）</h2>
+    <h3>メインライン（◎軸）</h3>
+    <table class="bet-table">
+      <thead>
+        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="bet-type">単勝</span></td><td>⑦</td><td>本命・3.3倍</td></tr>
+        <tr><td><span class="bet-type">複勝</span></td><td>⑦⑩</td><td>本命・ML穴保険</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>⑦ー①</td><td>◎○ メインライン</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>⑦ー⑭</td><td>◎▲（ルメール×ML△）</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>⑦ー⑩</td><td>◎△（ML穴筆頭・13.6倍）</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>⑦ー④</td><td>◎△（川田S×高配当）</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>⑦ー①ー⑭</td><td>◎○▲ メイン</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>⑦ー①ー⑩</td><td>◎○△（ML穴）</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>⑦ー⑭ー⑩</td><td>▲△△（ML上位3頭）</td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;">保険ライン（◎が飛んだ時用）</h3>
+    <table class="bet-table">
+      <thead>
+        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="bet-type">馬連</span></td><td>①ー⑭</td><td>○-▲</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>①ー⑩</td><td>○-△（ML穴）</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>①ー⑭ー⑩</td><td>○-▲-△</td></tr>
+      </tbody>
+    </table>
   </div>
+
   <div class="card">
     <h2>総評</h2>
-    <p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>◎コスモキュランダ（7番）を本命とする（ルール×ML統合後の移動）。</strong></p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">ルールベース予想では○だったコスモキュランダだが、ML単スコア2位（0.611）・複スコア1位（0.591）という高スコアを受けて◎に格上げ。有馬記念好走→日経賞パターン（ゴールドアクター2016・タイトルホルダー2022・2023と3/3の高信頼度）× ML上位評価という二重の根拠で本命確定。アルアイン産駒のスタミナ・横山武史A評価・4枠中枠と不安要素が少ない。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>○ミクニインスパイア（1番）はルール◎からML低評価を受け○に格下げ。</strong></p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">過去傾向（条件戦1着→日経賞：ガンコ2018・シュトルーヴェ2024）との整合性は最高水準だが、MLスコアが0.400（全馬中8位）と低評価。MLが条件戦直行パターンを十分に学習できていない可能性もあり、傾向の強さから消しにはできないが、◎→○に格下げ。昨日4.9倍から3.7倍に人気が集まったことで期待値も若干低下。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>▲ローシャムパーク（14番）はルール×ML共に整合。</strong></p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">近3走不振（宝塚15着・アルゼ12着・香港C5着）は割引材料だが、ルメールS評価（複勝率62%）× ML単△・複△という整合感のある評価。外枠14番が最大の懸念点。馬体が立て直されていれば1発がある実力馬。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>△シャイニングソード（10番）はML穴馬候補として△格上げ。</strong></p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">ルールベースでは印がなかったが、MLが全馬中最高スコア（単0.623）を付けているため△に格上げ。前走日経新春杯8着という表面的な成績が人気を抑えており、13.6倍というオッズは割安感がある。「日経新春杯前走→日経賞勝利」パターン（2017年・2025年）との整合性も後押し。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">---</p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">*本予想はルールベース傾向分析（過去10年）＋LightGBMモデル（20260326学習済み）＋騎手成績データ（直近3年）によるAI統合予想です。*<br>*調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。*</p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">---</p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">#AI予想<br>◎コスモキュランダ（7番）<br>○ミクニインスパイア（1番）<br>▲ローシャムパーク（14番）<br>△シャイニングソード（10番）<br>△エヒト（4番）</p>
-
+    <p style="font-size:14px; line-height:1.8;">
+      <strong>◎コスモキュランダ（7番）をルール×ML統合後の本命とする。</strong><br>
+      ルールベース予想では○だったが、ML単スコア2位（0.611）・複スコア1位（0.591）という高評価を受けて◎に格上げ。有馬記念好走→日経賞パターン（ゴールドアクター2016・タイトルホルダー2022・2023と3/3の最高信頼度）× ML上位評価という二重の根拠。馬体重520(-2)も安定しており、アルアイン産駒のスタミナ・横山武史A評価・4枠中枠と不安要素が少ない。
+    </p>
+    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
+      <strong>○ミクニインスパイア（1番）はルール◎からML低評価を受け対抗に。</strong><br>
+      条件戦1着→日経賞（ガンコ2018・シュトルーヴェ2024）との整合性は最高水準だが、MLスコア0.400（全馬中8位）と低評価。条件戦直行パターンをMLが十分に評価できていない可能性もある。中山2500m2連勝・4歳56kg・内枠の好条件は健在で、◎の逆転まで十分あり。
+    </p>
+    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
+      <strong>▲ローシャムパーク（14番）はルール×ML共に整合、馬体重も良化サイン。</strong><br>
+      近3走不振（宝塚15着・アルゼ12着・香港C5着）は割引材料だが、馬体重506(+8)という当日の良化サインが好材料。ルメールS評価×ML単複△という整合感のある評価。外枠14番が最大の懸念点だが、復調していれば1発がある実力馬。
+    </p>
   </div>
+
 </div>
 
-<!-- 傾向分析タブ -->
+<!-- ========== 傾向分析タブ ========== -->
 <div id="tab-trend" class="tab-content">
+
   <div class="card">
-    <h2>過去の結果</h2>
-    <table class="data-table"><thead><tr><th>年</th><th>1着</th><th>人気</th><th>枠</th><th>2着</th><th>枠</th><th>3着</th><th>枠</th><th>タイム</th></tr></thead><tbody>
-<tr><td>2016</td><td>ゴールドアクター</td><td>(非公開)</td><td>8</td><td>サウンズオブアース</td><td>4</td><td>マリアライト</td><td>2</td><td>2:36.8</td></tr>
-<tr><td>2017</td><td>シャケトラ</td><td>(非公開)</td><td>7</td><td>ミライヘノツバサ</td><td>6</td><td>アドマイヤデウス</td><td>5</td><td>2:32.8</td></tr>
-<tr><td>2018</td><td>ガンコ</td><td>(非公開)</td><td>7</td><td>チェスナットコート</td><td>2</td><td>サクラアンプルール</td><td>6</td><td>2:33.9</td></tr>
-<tr><td>2019</td><td>メイショウテッコン</td><td>(非公開)</td><td>1</td><td>エタリオウ</td><td>6</td><td>サクラアンプルール</td><td>4</td><td>2:34.2</td></tr>
-<tr><td>2020</td><td>ミッキースワロー</td><td>(非公開)</td><td>8</td><td>モズベッロ</td><td>6</td><td>スティッフェリオ</td><td>7</td><td>2:32.9</td></tr>
-<tr><td>2021</td><td>ウインマリリン</td><td>(非公開)</td><td>3</td><td>カレンブーケドール</td><td>4</td><td>ワールドプレミア</td><td>2</td><td>2:33.3</td></tr>
-<tr><td>2022</td><td>タイトルホルダー</td><td>1</td><td>6</td><td>ボッケリーニ</td><td>4</td><td>ヒートオンビート</td><td>4</td><td>2:35.4</td></tr>
-<tr><td>2023</td><td>タイトルホルダー</td><td>2</td><td>2</td><td>ボッケリーニ</td><td>5</td><td>ディアスティマ</td><td>5</td><td>2:36.8</td></tr>
-<tr><td>2024</td><td>シュトルーヴェ</td><td>4</td><td>6</td><td>クロミナンス</td><td>8</td><td>マイネルウィルトス</td><td>5</td><td>2:31.4</td></tr>
-<tr><td>2025</td><td>マイネルエンペラー</td><td>2</td><td>5</td><td>チャックネイト</td><td>4</td><td>アーバンシック</td><td>4</td><td>2:36.1</td></tr>
-</tbody></table>
+    <h2>過去10年の結果（2016〜2025）</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>年</th><th>1着</th><th>人気</th><th>枠</th><th>2着</th><th>枠</th><th>3着</th><th>枠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2016</td><td>ゴールドアクター</td><td>—</td><td>8</td><td>サウンズオブアース</td><td>4</td><td>マリアライト</td><td>2</td></tr>
+        <tr><td>2017</td><td>シャケトラ</td><td>—</td><td>7</td><td>ミライヘノツバサ</td><td>6</td><td>アドマイヤデウス</td><td>5</td></tr>
+        <tr><td>2018</td><td>ガンコ</td><td>—</td><td>7</td><td>チェスナットコート</td><td>2</td><td>サクラアンプルール</td><td>6</td></tr>
+        <tr><td>2019</td><td>メイショウテッコン</td><td>—</td><td>1</td><td>エタリオウ</td><td>6</td><td>サクラアンプルール</td><td>4</td></tr>
+        <tr><td>2020</td><td>ミッキースワロー</td><td>—</td><td>8</td><td>モズベッロ</td><td>6</td><td>スティッフェリオ</td><td>7</td></tr>
+        <tr><td>2021</td><td>ウインマリリン</td><td>—</td><td>3</td><td>カレンブーケドール</td><td>4</td><td>ワールドプレミア</td><td>2</td></tr>
+        <tr><td>2022</td><td>タイトルホルダー</td><td class="pop1">1</td><td>6</td><td>ボッケリーニ</td><td>4</td><td>ヒートオンビート</td><td>4</td></tr>
+        <tr><td>2023</td><td>タイトルホルダー</td><td class="pop2">2</td><td>2</td><td>ボッケリーニ</td><td>5</td><td>ディアスティマ</td><td>5</td></tr>
+        <tr><td>2024</td><td>シュトルーヴェ</td><td>4</td><td>6</td><td>クロミナンス</td><td>8</td><td>マイネルウィルトス</td><td>5</td></tr>
+        <tr><td>2025</td><td>マイネルエンペラー</td><td class="pop2">2</td><td>5</td><td>チャックネイト</td><td>4</td><td>アーバンシック</td><td>4</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:#999; margin-top:8px;">※2016〜2021年はオッズ・人気データが保存されていないため非公開</p>
   </div>
+
+  <div class="card">
+    <h2>人気・オッズ傾向</h2>
+    <h3>1着馬の人気分布（2022〜2025年確認分）</h3>
+    <table class="data-table">
+      <thead><tr><th>人気</th><th>回数</th><th>割合</th></tr></thead>
+      <tbody>
+        <tr><td class="pop1">1番人気</td><td>1回</td><td>25%</td></tr>
+        <tr><td class="pop2">2番人気</td><td>2回</td><td>50%</td></tr>
+        <tr><td>3番人気</td><td>0回</td><td>0%</td></tr>
+        <tr><td>4番人気</td><td>1回</td><td>25%</td></tr>
+        <tr><td>5番人気以下</td><td>0回</td><td>0%</td></tr>
+      </tbody>
+    </table>
+    <h3>3着内に入った人気帯</h3>
+    <ul class="rule-list">
+      <li>2022: 1-3-4番人気（人気サイドで決着）</li>
+      <li>2023: 2-5-5番人気（タイトルホルダー連覇も3着は荒れ）</li>
+      <li>2024: 4-?-?番人気（シュトルーヴェ4番人気勝利で荒れ）</li>
+      <li>2025: 2-?-3番人気（比較的堅め）</li>
+    </ul>
+    <h3>馬連・3連複の傾向</h3>
+    <ul class="rule-list">
+      <li>完全に堅く収まるパターンは少ない（タイトルホルダー連覇の年も3着はヒートオンビート4人気）</li>
+      <li>4番人気以下が絡む荒れ決着は年1〜2頭</li>
+      <li><strong>中穴（5〜8番人気）が3着に飛び込むパターンが複数年あり</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>前走パターン・臨戦過程</h2>
+    <h3>勝ち馬の前走レース</h3>
+    <table class="data-table">
+      <thead><tr><th>年</th><th>勝ち馬</th><th>前走レース</th><th>前走着順</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>ゴールドアクター</td><td>有馬記念(GI)</td><td>1着</td></tr>
+        <tr><td>2017</td><td>シャケトラ</td><td>日経新春杯(GII)</td><td>2着</td></tr>
+        <tr><td>2018</td><td>ガンコ</td><td>3勝クラス</td><td>1着</td></tr>
+        <tr><td>2019</td><td>メイショウテッコン</td><td>日経新春杯(GII)</td><td>9着</td></tr>
+        <tr><td>2020</td><td>ミッキースワロー</td><td>AJCC(GII)</td><td>4着</td></tr>
+        <tr><td>2021</td><td>ウインマリリン</td><td>AJCC(GII)</td><td>6着</td></tr>
+        <tr><td>2022</td><td>タイトルホルダー</td><td>有馬記念(GI)</td><td>5着</td></tr>
+        <tr><td>2023</td><td>タイトルホルダー</td><td>有馬記念(GI)</td><td>9着</td></tr>
+        <tr><td>2024</td><td>シュトルーヴェ</td><td>3勝クラス</td><td>1着</td></tr>
+        <tr><td>2025</td><td>マイネルエンペラー</td><td>日経新春杯(GII)</td><td>3着</td></tr>
+      </tbody>
+    </table>
+    <ul class="rule-list" style="margin-top:10px;">
+      <li><strong>有馬記念(GI)前走:</strong> 3回（最多）。前走着順不問で巻き返しあり（9着→1着の例も）</li>
+      <li><strong>AJCC(GII)前走:</strong> 2回。4〜6着でも可。13着大敗は疑問符</li>
+      <li><strong>日経新春杯(GII)前走:</strong> 2回。前走9着でも来た例あり</li>
+      <li><strong>3勝クラス（条件戦）前走:</strong> 2回。必ず前走1着が条件</li>
+    </ul>
+    <h3>距離ローテーション</h3>
+    <ul class="rule-list">
+      <li>有馬記念(2500m)→2500m = 同距離ローテ</li>
+      <li>AJCC(2200m)→2500m = 300m延長でも好走</li>
+      <li>日経新春杯(2200m)→2500m = 同様に300m延長パターン</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>枠番傾向</h2>
+    <h3>1着馬の枠番（2016〜2025年）</h3>
+    <table class="data-table">
+      <thead><tr><th>枠番</th><th>1着回数</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>1枠</td><td>1回</td><td>2019年</td></tr>
+        <tr><td>2枠</td><td>1回</td><td>2023年</td></tr>
+        <tr><td>3枠</td><td>1回</td><td>2021年</td></tr>
+        <tr><td>4枠</td><td>0回</td><td></td></tr>
+        <tr><td>5枠</td><td>1回</td><td>2025年</td></tr>
+        <tr><td>6枠</td><td>2回</td><td>2022・2024年</td></tr>
+        <tr><td>7枠</td><td>2回</td><td>2017・2018年</td></tr>
+        <tr><td>8枠</td><td>2回</td><td>2016・2020年</td></tr>
+      </tbody>
+    </table>
+    <ul class="rule-list" style="margin-top:10px;">
+      <li><strong>外枠（7〜8枠）が4/10回で最多</strong>（特に2016〜2020年は外枠が強かった）</li>
+      <li><strong>近年（2021〜2025年の5年）は内〜中枠（1〜6枠）に移行</strong>。2021年以降は外枠0勝</li>
+      <li>全体的には枠不問だが、近年トレンドとして内〜中枠が優勢に変化</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>血統傾向</h2>
+    <h3>歴代勝ち馬の父系</h3>
+    <table class="data-table">
+      <thead><tr><th>年</th><th>勝ち馬</th><th>父</th><th>父系</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>ゴールドアクター</td><td>スクリーンヒーロー</td><td>ロベルト系</td></tr>
+        <tr><td>2017</td><td>シャケトラ</td><td>マンハッタンカフェ</td><td>サンデー系（スタミナ）</td></tr>
+        <tr><td>2018</td><td>ガンコ</td><td>ハーツクライ</td><td>サンデー系（スタミナ）</td></tr>
+        <tr><td>2019</td><td>メイショウテッコン</td><td>デュランダル</td><td>サンデー系</td></tr>
+        <tr><td>2020</td><td>ミッキースワロー</td><td>トーセンラー</td><td>サンデー系</td></tr>
+        <tr><td>2021</td><td>ウインマリリン</td><td>スクリーンヒーロー</td><td>ロベルト系</td></tr>
+        <tr><td>2022</td><td>タイトルホルダー</td><td>ドゥラメンテ</td><td>キングマンボ系</td></tr>
+        <tr><td>2023</td><td>タイトルホルダー</td><td>ドゥラメンテ</td><td>キングマンボ系</td></tr>
+        <tr><td>2024</td><td>シュトルーヴェ</td><td>キズナ</td><td>ディープ系（サンデー）</td></tr>
+        <tr><td>2025</td><td>マイネルエンペラー</td><td>ブラックタイド</td><td>サンデー系</td></tr>
+      </tbody>
+    </table>
+    <ul class="rule-list" style="margin-top:10px;">
+      <li><strong>サンデーサイレンス系（ディープ含む）: 7/10（70%）が最多</strong></li>
+      <li><strong>ロベルト系（スクリーンヒーロー）: 2/10</strong>。中長距離スタミナ型で2頭とも勝利</li>
+      <li><strong>キングマンボ系: 2/10</strong>（タイトルホルダーのドゥラメンテ）</li>
+    </ul>
+    <h3>3着以内に入りやすい血統特徴</h3>
+    <ul class="rule-list">
+      <li>スタミナ型サンデー系（マンハッタンカフェ・ハーツクライ・ブラックタイド・トーセンラー）が最多</li>
+      <li>ロベルト系（スクリーンヒーロー産駒）は2頭とも勝利</li>
+      <li>ハービンジャー（欧州型）産駒は過去勝ちがないが中山2500mの持続力戦に合う血統</li>
+      <li>短距離血統（マイル特化系）は割引</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>リピーター傾向</h2>
+    <ul class="rule-list">
+      <li><strong>タイトルホルダー</strong>: 2022年1着 → 2023年1着（連覇達成・最強リピーター）</li>
+      <li><strong>ボッケリーニ</strong>: 2022年2着 → 2023年2着（2連続2着）</li>
+      <li><strong>サクラアンプルール</strong>: 2018年3着 → 2019年3着（3着連続）</li>
+      <li><strong>チャックネイト</strong>: 2025年2着 → 2026年出走（リピーター候補・ただし前走AJCC13着大敗）</li>
+      <li><strong>リビアングラス</strong>: 2025年4着 → 2026年出走（リピーター参考）</li>
+      <li>→ <strong>前年2着馬は翌年も3着以内に来やすい</strong>（タイトルホルダー・ボッケリーニの実績）</li>
+    </ul>
+  </div>
+
   <div class="card">
     <h2>法則まとめ</h2>
-    <ul class="rule-list"><li><strong>人気</strong>: 1-4番人気が上位を占める。2-4番人気が馬連でお得</li>
-<li><strong>枠番</strong>: 全体的に枠不問。近年（2021-）は内〜中枠優勢に変化</li>
-<li><strong>前走GI</strong>: 有馬記念からの臨戦は前走着順不問で要注意（3/3連対）</li>
-<li><strong>前走AJCC</strong>: AJCC4-6着でも来る（2回）。前走大敗（13着）は割引</li>
-<li><strong>前走条件戦</strong>: 3勝クラス1着→直行は要注目（2/10の勝利パターン）</li>
-<li><strong>前走新春杯</strong>: 日経新春杯から2回勝利。前走9着でも来た例あり</li>
-<li><strong>血統</strong>: サンデー系スタミナ型が中心。ロベルト系も実績あり</li>
-<li><strong>リピーター</strong>: 前年上位馬（特に2着）は翌年も要注意</li>
-<li><strong>年齢</strong>: 4-6歳が中心（10歳以上は好走例なし）。9歳は未勝利</li>
-</ul>
+    <ul class="rule-list">
+      <li><strong>人気</strong>: 1〜4番人気が上位を占める。2〜4番人気が馬連でお得（高・2022〜2025確認）</li>
+      <li><strong>枠番</strong>: 全体的に枠不問。近年（2021〜）は内〜中枠優勢に変化（中）</li>
+      <li><strong>前走GI（有馬）</strong>: 有馬記念からの臨戦は前走着順不問で要注意（高・3/10）</li>
+      <li><strong>前走AJCC</strong>: AJCC4〜6着でも来る（2回）。前走大敗（13着）は割引（中）</li>
+      <li><strong>前走条件戦</strong>: 3勝クラス1着→直行は必ず前走1着が条件（中・2/10）</li>
+      <li><strong>前走新春杯</strong>: 日経新春杯から2回勝利。前走9着でも来た例あり（中）</li>
+      <li><strong>血統</strong>: サンデー系スタミナ型が中心。ロベルト系も実績あり（高・7/10がサンデー系）</li>
+      <li><strong>リピーター</strong>: 前年上位馬（特に2着）は翌年も要注意（高・複数年確認）</li>
+      <li><strong>年齢</strong>: 4〜6歳が中心。9歳以上は過去勝利なし（中）</li>
+    </ul>
   </div>
-  <p class="note" style="margin:0 0 20px;">
-    ※分析対象: 過去10年分。
+
+  <div class="card">
+    <h2>予想への応用</h2>
+    <ul class="rule-list">
+      <li><strong>「条件戦直前1着」からの参戦馬は必ずマーク</strong>（ガンコ2018・シュトルーヴェ2024の勝利パターン）。前走コースが中山2500mか確認</li>
+      <li><strong>有馬記念好走馬（前走着順不問）は巻き返し候補</strong>（2016・2022・2023に勝ち馬）</li>
+      <li><strong>リピーター（前年2着馬）は翌年も3着以内に来やすい</strong>→ チャックネイトを警戒（ただし前走大敗が懸念）</li>
+      <li><strong>AJCC組は前走4〜6着程度なら評価。ただし13着大敗は疑問</strong></li>
+      <li><strong>外枠（7〜8枠）は近年不振傾向</strong>→ 2021年以降は1〜6枠に絞った方がよい</li>
+      <li><strong>MLスコア最高位のシャイニングソードは穴候補</strong>→ ルールでは印なしだがML0.623は無視できない</li>
+    </ul>
+  </div>
+
+  <p class="note" style="margin: 0 0 20px;">
+    ※分析対象: 2016〜2025年（10年分）。中山 芝2500m（右回り外回り）。生成日: 2026-03-27
   </p>
 </div>
 
@@ -176,5 +408,6 @@
 </div><!-- /page-wrapper -->
 
 <script src="../js/race.js"></script>
+
 </body>
 </html>
