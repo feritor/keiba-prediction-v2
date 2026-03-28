@@ -208,6 +208,12 @@ header .grade-badge.g3 { background: #7a4f2d; }
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+  .data-table th,
+  .data-table td,
+  .bet-table th,
+  .bet-table td {
+    white-space: nowrap;
+  }
 
   /* 馬情報カード */
   .horse-row { gap: 8px; padding: 10px; }
