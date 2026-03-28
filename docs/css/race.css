@@ -11,6 +11,8 @@ body {
   background: #f7f5f0;
   color: #333;
   line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 body::before,
 body::after {
