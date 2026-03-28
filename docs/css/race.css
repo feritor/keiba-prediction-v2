@@ -192,8 +192,26 @@ header .grade-badge.g3 { background: #7a4f2d; }
 
 /* スマホ対応 */
 @media (max-width: 600px) {
+  header { padding: 16px 16px; }
   header h1 { font-size: 18px; }
+  header .race-meta { font-size: 12px; }
+
+  .page-wrapper { padding: 10px; }
   .tab-btn { font-size: 13px; padding: 10px 12px; }
-  .tab-content { padding: 14px; }
+  .tab-content { padding: 12px; }
+  .card { padding: 12px; }
+
+  /* テーブルを横スクロール可能に */
+  .data-table,
+  .bet-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 馬情報カード */
+  .horse-row { gap: 8px; padding: 10px; }
   .horse-name { font-size: 15px; }
+  .horse-sub { word-break: break-all; overflow-wrap: break-word; }
+  .horse-odds { font-size: 13px; }
 }
