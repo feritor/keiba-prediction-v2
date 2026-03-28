@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/race.css">
   <title>毎日杯 2026 AI予想 | 競馬予想サイト</title>
+  <link rel="stylesheet" href="../css/race.css">
 </head>
 <body>
 
@@ -16,86 +16,367 @@
   <div class="site-name">競馬AI予想</div>
   <h1>毎日杯 2026</h1>
   <div class="race-meta">
-    <span class="grade-badge g3">GIII</span>
-    阪神 芝1800m G3（7頭立て）
+    <span class="grade-badge grade-g3">G3</span>
+    2026年3月29日 阪神11R ／ 芝1800m（7頭立て）
   </div>
 </header>
 
 <div class="page-wrapper">
 <div class="tab-card">
 
+<!-- タブ -->
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('yoso')">予想</button>
   <button class="tab-btn" onclick="switchTab('kaimoku')">買い目</button>
   <button class="tab-btn" onclick="switchTab('trend')">傾向分析</button>
 </div>
 
-<!-- 予想タブ -->
+<!-- ========== 予想タブ ========== -->
 <div id="tab-yoso" class="tab-content active">
+
   <div class="card">
     <h2>予想印（ルールベース＋ML統合）</h2>
     <div class="horse-list">
 
+      <!-- ◎ 本命 -->
+      <div class="horse-row row-honmei">
+        <span class="badge badge-honmei">◎</span>
+        <div class="horse-num">2</div>
+        <div class="horse-info">
+          <div class="horse-name">カフジエメンタール</div>
+          <div class="horse-sub">騎手: 武豊(A) ／ ML単: 0.6697 ／ ML複: 0.7942</div>
+          <div class="horse-sub">アルメリア賞(阪神芝1800)1着→毎日杯の必勝パターン・ML複勝最高・馬体重+2kg安定・武豊A</div>
+        </div>
+        <div class="horse-odds">3.0倍<small>2番人気</small></div>
+      </div>
+
+      <!-- ○ 対抗 -->
+      <div class="horse-row row-taiko">
+        <span class="badge badge-taiko">○</span>
+        <div class="horse-num">4</div>
+        <div class="horse-info">
+          <div class="horse-name">アルトラムス</div>
+          <div class="horse-sub">騎手: 岩田望来(A) ／ ML単: 0.6606 ／ ML複: 0.7688</div>
+          <div class="horse-sub">G3 3着→巻き返しパターン（2021シャフリヤール同型）・ML△3位・馬体重±0安定</div>
+        </div>
+        <div class="horse-odds">2.6倍<small>1番人気</small></div>
+      </div>
+
+      <!-- ▲ 単穴 -->
+      <div class="horse-row row-santen">
+        <span class="badge badge-santen">▲</span>
+        <div class="horse-num">3</div>
+        <div class="horse-info">
+          <div class="horse-name">ローベルクランツ</div>
+          <div class="horse-sub">騎手: 松山弘平(A) ／ ML単: 0.6712 ／ ML複: 0.7477</div>
+          <div class="horse-sub">ML単勝スコア7頭中最高(0.6712)・叩き台型パターン合致・馬体重-10kg懸念あり</div>
+        </div>
+        <div class="horse-odds">5.1倍<small>3番人気</small></div>
+      </div>
+
+      <!-- △ 連下1 -->
+      <div class="horse-row row-tanko">
+        <span class="badge badge-tanko">△</span>
+        <div class="horse-num">6</div>
+        <div class="horse-info">
+          <div class="horse-name">ウップヘリーア</div>
+          <div class="horse-sub">騎手: 吉村誠之助(C) ／ ML単: 0.5727 ／ ML複: 0.6567</div>
+          <div class="horse-sub">若竹賞2着・輸送-6kgは許容範囲・ML圏外でルール▲から1段落とし</div>
+        </div>
+        <div class="horse-odds">5.2倍<small>4番人気</small></div>
+      </div>
+
     </div>
   </div>
+
+  <!-- 過去傾向との照合 -->
   <div class="card">
-    <h2>全出走馬オッズ</h2>
-    <table class="data-table"><thead><tr><th>馬番</th><th>人気</th><th>単勝オッズ</th><th>複勝下限</th><th>馬名</th></tr></thead><tbody><tr><td>4</td><td>1</td><td>1.6</td><td>1.6</td><td>アルトラムス</td></tr>
-<tr><td class="pop2">2</td><td>2</td><td>3.9</td><td>1.4</td><td>カフジエメンタール</td></tr>
-<tr><td>3</td><td>3</td><td>6.8</td><td>2.3</td><td>ローベルクランツ</td></tr>
-<tr><td>6</td><td>4</td><td>7.2</td><td>2.2</td><td>ウップヘリーア</td></tr>
-<tr><td>5</td><td>5</td><td>17.8</td><td>3.7</td><td>ブリガンティン</td></tr>
-<tr><td>7</td><td>6</td><td>28.0</td><td>5.4</td><td>シーズザスローン</td></tr>
-<tr><td class="pop1">1</td><td>7</td><td>33.9</td><td>7.9</td><td>フレイムスター</td></tr>
-</tbody></table>
+    <h2>過去傾向との照合</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>パターン</th><th>該当馬</th><th>信頼度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>前走アルメリア賞（阪神芝1800）1着</td><td>②カフジエメンタール</td><td class="pop1">高</td></tr>
+        <tr><td>前走1勝クラス/リステッド1着（10年中6回勝利）</td><td>②カフジエメンタール</td><td class="pop1">高</td></tr>
+        <tr><td>前走G3 3着→巻き返し（2021シャフリヤール同型）</td><td>④アルトラムス</td><td class="pop1">高</td></tr>
+        <tr><td>前走G3着外→叩き台型（2016・2017・2023パターン）</td><td>③ローベルクランツ（-10kg割引）</td><td class="pop2">中</td></tr>
+        <tr><td>内枠（1〜3枠）有利（10年で3着以内14回）</td><td>①フレイムスター・②カフジエメンタール・③ローベルクランツ</td><td class="pop2">中</td></tr>
+        <tr><td>1番人気飛ぶパターン（複勝率40%）</td><td>④アルトラムスが1番人気（単勝1.6→2.6急落）</td><td class="pop2">注意</td></tr>
+        <tr><td>ダート前走→消し条件</td><td>⑦シーズザスローン（前2走ダート）</td><td class="pop1">高（消し）</td></tr>
+      </tbody>
+    </table>
   </div>
-  <p class="note" style="margin:0 0 20px;">
-    ※本予想はルールベース傾向分析（過去10年）＋LightGBM機械学習モデル＋騎手成績データによるAI予想です。
-    調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
+
+  <!-- 全出走馬評価テーブル -->
+  <div class="card">
+    <h2>全出走馬の評価</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>馬番</th><th>馬名</th><th>単勝</th><th>ML単</th><th>ML複</th><th>騎手</th><th>騎手評価</th><th>統合印</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2</td><td>カフジエメンタール</td><td>3.0倍</td><td>0.6697</td><td>0.7942</td><td>武豊</td><td>A</td><td class="pop1">◎</td></tr>
+        <tr><td>4</td><td>アルトラムス</td><td>2.6倍</td><td>0.6606</td><td>0.7688</td><td>岩田望来</td><td>A</td><td class="pop2">○</td></tr>
+        <tr><td>3</td><td>ローベルクランツ</td><td>5.1倍</td><td><strong>0.6712</strong></td><td>0.7477</td><td>松山弘平</td><td>A</td><td class="pop3">▲</td></tr>
+        <tr><td>6</td><td>ウップヘリーア</td><td>5.2倍</td><td>0.5727</td><td>0.6567</td><td>吉村誠之助</td><td>C</td><td>△</td></tr>
+        <tr><td>7</td><td>シーズザスローン</td><td>15.8倍</td><td>0.5258</td><td>0.6470</td><td>幸英明</td><td>C</td><td style="color:#999;">消</td></tr>
+        <tr><td>1</td><td>フレイムスター</td><td>32.0倍</td><td>0.4851</td><td>0.5890</td><td>団野大成</td><td>B</td><td style="color:#999;">消</td></tr>
+        <tr><td>5</td><td>ブリガンティン</td><td>16.3倍</td><td>0.2665</td><td>0.4064</td><td>原優介</td><td>C</td><td style="color:#999;">消</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:#999; margin-top:8px;">△ = 上位スコアだが閾値未達（閾値: 単0.8126 / 複0.8796）。全馬閾値未達のため相対比較で上位3頭を△表示。</p>
+  </div>
+
+  <!-- ML穴馬候補 -->
+  <div class="card">
+    <h2>ML穴馬候補</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>馬番</th><th>馬名</th><th>単勝オッズ</th><th>ML単</th><th>ML複</th><th>騎手</th><th>コメント</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>3</td><td>ローベルクランツ</td><td>5.1倍</td><td><strong>0.6712（1位）</strong></td><td>0.7477</td><td>松山弘平(A)</td><td>叩き台型パターン合致・ML単勝最高。馬体重-10kgが解消されているなら大穴候補</td></tr>
+        <tr><td>7</td><td>シーズザスローン</td><td>15.8倍</td><td>0.5258（5位）</td><td>0.6470</td><td>幸英明(C)</td><td>前2走ダートでルール消しだが単勝28.0→15.8急騰。調教情報次第で穴候補</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="note" style="margin: 0 0 20px;">
+    ※本予想はルールベース傾向分析（過去10年）＋LightGBMモデル（20260326学習済み）＋騎手成績データ（直近3年）によるAI統合予想です。調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
   </p>
 </div>
 
-<!-- 買い目タブ -->
+<!-- ========== 買い目タブ ========== -->
 <div id="tab-kaimoku" class="tab-content">
+
   <div class="card">
-    <h2>推奨買い目</h2>
-    <p>買い目データなし</p>
+    <h2>推奨買い目（◎2番カフジエメンタール軸）</h2>
+    <h3>メインライン（◎軸）</h3>
+    <table class="bet-table">
+      <thead>
+        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="bet-type">単勝</span></td><td>②</td><td>本命（3.0倍・必勝パターン）</td></tr>
+        <tr><td><span class="bet-type">複勝</span></td><td>②④</td><td>本命・対抗保険</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>②ー④</td><td>◎○ メインライン</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>②ー③</td><td>◎▲（ML単勝1位・叩き台型）</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>②ー⑥</td><td>◎△（若竹賞2着・押さえ）</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>②ー③ー④</td><td>◎○▲ ボックス（メイン）</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>②ー④ー⑥</td><td>◎○△ サブライン</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>②ー③ー⑥</td><td>◎▲△ 中穴ライン</td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;">保険ライン（◎が飛んだ時用）</h3>
+    <table class="bet-table">
+      <thead>
+        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="bet-type">馬連</span></td><td>③ー④</td><td>○-▲（ML上位2頭）</td></tr>
+        <tr><td><span class="bet-type">馬連</span></td><td>④ー⑥</td><td>○-△</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>③ー④ー⑥</td><td>○-▲-△ 保険</td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;">穴狙い（ML・オッズ急騰に賭ける場合）</h3>
+    <table class="bet-table">
+      <thead>
+        <tr><th>式別</th><th>組み合わせ</th><th>根拠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="bet-type">馬連</span></td><td>②ー⑦</td><td>シーズザスローン急騰が本物の場合</td></tr>
+        <tr><td><span class="bet-type">3連複</span></td><td>②ー③ー⑦</td><td>カフジ軸・ML穴2頭絡み</td></tr>
+      </tbody>
+    </table>
   </div>
+
   <div class="card">
     <h2>総評</h2>
-    <p style="font-size:14px;line-height:1.8;margin-top:12px;">今年の毎日杯は7頭立ての少頭数。過去傾向との照合では、<strong>カフジエメンタール</strong>が「アルメリア賞（阪神芝1800）1勝クラス1着→毎日杯」という2019・2022の必勝パターンに完全合致。武豊という実力騎手を鞍上に、同場同距離での実績もあり最も高い評価となった。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>アルトラムス</strong></p>
-<p style="font-size:14px;line-height:1.8;margin-top:4px;">は1番人気に推されているが、過去10年で1番人気の複勝率は40%と決して高くない。キャリア2戦・芝1800m初経験という未知数感がある。実力は確かだが「頭固定」は危険。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>ローベルクランツ</strong></p>
-<p style="font-size:14px;line-height:1.8;margin-top:4px;">は「G3着外から毎日杯巻き返し」という歴史的パターンに当てはまるが、直近2走での着差が大きく消耗型の懸念もある。内枠3枠と松山鞍上の組み合わせが叩き台型として化ける可能性を残す。</p>
-<p style="font-size:14px;line-height:1.8;margin-top:12px;">調教・馬場状態は本予想に含まれていないため、当日の馬場と各馬の調教内容を確認の上、最終判断することを推奨する。</p>
-
+    <p style="font-size:14px; line-height:1.8;">
+      <strong>◎カフジエメンタール（2番）が全指標で最高の評価。</strong><br>
+      ルールベースでは「アルメリア賞（阪神芝1800）1勝クラス1着→毎日杯」の必勝パターン（2019・2022と同型）に完全合致。MLでも複勝スコア最高（0.7942）。馬体重+2kgで安定、武豊A評価騎手、内枠2枠と弱点がない。単勝3.0倍は必勝パターン馬としては適正な水準。
+    </p>
+    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
+      <strong>○アルトラムス（4番）は評価変わらず。</strong><br>
+      単勝が1.6→2.6と急落したが馬体重±0で状態は安定。前走G3 3着→毎日杯は2021シャフリヤール同型のパターン。1番人気複勝率40%という傾向があるため頭固定は危険だが、能力的に問題はない。
+    </p>
+    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
+      <strong>▲ローベルクランツ（3番）はML単勝スコア最高が格上げの決め手。</strong><br>
+      叩き台型パターン合致＋ML単勝スコア7頭中1位（0.6712）で能力は確か。馬体重-10kgが状態悪化のサインなのか輸送減なのか不明で抑え評価。この体重減でも走るようなら大穴になりうる。
+    </p>
+    <p style="font-size:14px; line-height:1.8; margin-top:12px;">
+      <strong>注目：⑦シーズザスローン（28.0→15.8倍）の急騰。</strong><br>
+      前2走がダートで消し条件だが、オッズ急騰とMLスコア0.5258（5位）が気になる。調教・陣営コメントを確認できる場合は再評価推奨。
+    </p>
   </div>
+
 </div>
 
-<!-- 傾向分析タブ -->
+<!-- ========== 傾向分析タブ ========== -->
 <div id="tab-trend" class="tab-content">
+
   <div class="card">
-    <h2>過去の結果</h2>
-    <table class="data-table"><thead><tr><th>年</th><th>1着</th><th>人気</th><th>枠</th><th>2着</th><th>人気</th><th>枠</th><th>3着</th><th>人気</th><th>枠</th></tr></thead><tbody>
-<tr><td>2016</td><td>スマートオーディン</td><td>8</td><td>8</td><td>アーバンキッド</td><td>5</td><td>2</td><td>タイセイサミット</td><td>4</td><td>5</td></tr>
-<tr><td>2017</td><td>アルアイン</td><td>2</td><td>3</td><td>サトノアーサー</td><td>7</td><td>1</td><td>キセキ</td><td>7</td><td>6</td></tr>
-<tr><td>2018</td><td>ブラストワンピース</td><td>2</td><td>1</td><td>ギベオン</td><td>5</td><td>5</td><td>インディチャンプ</td><td>10</td><td>3</td></tr>
-<tr><td>2019</td><td>ランスオブプラーナ</td><td>1</td><td>1</td><td>ウーリリ</td><td>3</td><td>2</td><td>ヴァンドギャルド</td><td>12</td><td>8</td></tr>
-<tr><td>2020</td><td>サトノインプレッサ</td><td>10</td><td>7</td><td>アルジャンナ</td><td>7</td><td>2</td><td>ダノンアレー</td><td>3</td><td>5</td></tr>
-<tr><td>2021</td><td>シャフリヤール</td><td>4</td><td>6</td><td>グレートマジシャン</td><td>6</td><td>7</td><td>プログノーシス</td><td>9</td><td>1</td></tr>
-<tr><td>2022</td><td>ピースオブエイト</td><td>1</td><td>4</td><td>ベジャール</td><td>2</td><td>7</td><td>ドゥラドーレス</td><td>6</td><td>1</td></tr>
-<tr><td>2023</td><td>シーズンリッチ</td><td>5</td><td>3</td><td>ノッキングポイント</td><td>5</td><td>6</td><td>ドットクルー</td><td>5</td><td>8</td></tr>
-<tr><td>2024</td><td>メイショウタバル</td><td>1</td><td>4</td><td>ノーブルロジャー</td><td>2</td><td>1</td><td>ベラジオボンド</td><td>4</td><td>3</td></tr>
-<tr><td>2025</td><td>ファンダム</td><td>7</td><td>7</td><td>ガルダイア</td><td>1</td><td>3</td><td>ネブラディスク</td><td>7</td><td>5</td></tr>
-</tbody></table>
+    <h2>過去10年の結果（2016〜2025）</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>年</th><th>1着</th><th>人気</th><th>枠</th><th>2着</th><th>人気</th><th>枠</th><th>3着</th><th>人気</th><th>枠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2016</td><td>スマートオーディン</td><td>8</td><td>8</td><td>アーバンキッド</td><td>5</td><td>2</td><td>タイセイサミット</td><td>4</td><td>5</td></tr>
+        <tr><td>2017</td><td>アルアイン</td><td class="pop2">2</td><td>3</td><td>サトノアーサー</td><td>7</td><td>1</td><td>キセキ</td><td>7</td><td>6</td></tr>
+        <tr><td>2018</td><td>ブラストワンピース</td><td class="pop2">2</td><td>1</td><td>ギベオン</td><td>5</td><td>5</td><td>インディチャンプ</td><td>10</td><td>3</td></tr>
+        <tr><td>2019</td><td>ランスオブプラーナ</td><td class="pop1">1</td><td>1</td><td>ウーリリ</td><td>3</td><td>2</td><td>ヴァンドギャルド</td><td>12</td><td>8</td></tr>
+        <tr><td>2020</td><td>サトノインプレッサ</td><td>10</td><td>7</td><td>アルジャンナ</td><td>7</td><td>2</td><td>ダノンアレー</td><td>3</td><td>5</td></tr>
+        <tr><td>2021</td><td>シャフリヤール</td><td>4</td><td>6</td><td>グレートマジシャン</td><td>6</td><td>7</td><td>プログノーシス</td><td>9</td><td>1</td></tr>
+        <tr><td>2022</td><td>ピースオブエイト</td><td class="pop1">1</td><td>4</td><td>ベジャール</td><td class="pop2">2</td><td>7</td><td>ドゥラドーレス</td><td>6</td><td>1</td></tr>
+        <tr><td>2023</td><td>シーズンリッチ</td><td>5</td><td>3</td><td>ノッキングポイント</td><td>5</td><td>6</td><td>ドットクルー</td><td>5</td><td>8</td></tr>
+        <tr><td>2024</td><td>メイショウタバル</td><td class="pop1">1</td><td>4</td><td>ノーブルロジャー</td><td class="pop2">2</td><td>1</td><td>ベラジオボンド</td><td>4</td><td>3</td></tr>
+        <tr><td>2025</td><td>ファンダム</td><td>7</td><td>7</td><td>ガルダイア</td><td class="pop1">1</td><td>3</td><td>ネブラディスク</td><td>7</td><td>5</td></tr>
+      </tbody>
+    </table>
   </div>
+
+  <div class="card">
+    <h2>人気・オッズ傾向</h2>
+    <h3>1着馬の人気分布</h3>
+    <table class="data-table">
+      <thead><tr><th>人気</th><th>回数</th><th>割合</th></tr></thead>
+      <tbody>
+        <tr><td class="pop1">1番人気</td><td>3回</td><td>30%</td></tr>
+        <tr><td class="pop2">2番人気</td><td>2回</td><td>20%</td></tr>
+        <tr><td>3番人気</td><td>0回</td><td>0%</td></tr>
+        <tr><td>4番人気</td><td>1回</td><td>10%</td></tr>
+        <tr><td>5番人気以下</td><td>4回</td><td>40%</td></tr>
+      </tbody>
+    </table>
+    <h3>3着内に入った人気帯</h3>
+    <ul class="rule-list">
+      <li>1〜3番人気の3着以内率: 57%（10年で延べ17回/30枠）</li>
+      <li>4〜6番人気の3着以内率: 23%（7回/30枠）</li>
+      <li>7番人気以上の3着以内率: 20%（6回/30枠）</li>
+      <li>10番人気以上の激走例: 2018インディチャンプ(10人気3着)、2019ヴァンドギャルド(12人気3着)、2020サトノインプレッサ(10人気1着)</li>
+    </ul>
+    <h3>荒れ傾向まとめ</h3>
+    <ul class="rule-list">
+      <li><strong>1番人気の複勝率40%</strong>（4/10）: 頭固定馬単は危険</li>
+      <li>素直に決まった年: 2019(1-3-12)、2022(1-2-6)、2024(1-2-4)</li>
+      <li>大荒れの年: 2020(10-7-3)、2023(5-5-5)、2025(7-1-7)</li>
+      <li>中穴年: 2016(8-5-4)、2017(2-7-7)、2021(4-6-9)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>前走パターン・臨戦過程</h2>
+    <h3>勝ち馬の前走レース</h3>
+    <table class="data-table">
+      <thead><tr><th>年</th><th>勝ち馬</th><th>前走レース</th><th>前走着順</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>スマートオーディン</td><td>共同通信杯(G3)</td><td>6着</td></tr>
+        <tr><td>2017</td><td>アルアイン</td><td>シンザン記念(G3)</td><td>6着</td></tr>
+        <tr><td>2018</td><td>ブラストワンピース</td><td>ゆりかもめ賞(条件)</td><td>1着</td></tr>
+        <tr><td>2019</td><td>ランスオブプラーナ</td><td>アルメリア賞(条件)</td><td>1着</td></tr>
+        <tr><td>2020</td><td>サトノインプレッサ</td><td>こぶし賞(1勝)</td><td>1着</td></tr>
+        <tr><td>2021</td><td>シャフリヤール</td><td>共同通信杯(G3)</td><td>3着</td></tr>
+        <tr><td>2022</td><td>ピースオブエイト</td><td>アルメリア賞(1勝)</td><td>1着</td></tr>
+        <tr><td>2023</td><td>シーズンリッチ</td><td>共同通信杯(G3)</td><td>6着</td></tr>
+        <tr><td>2024</td><td>メイショウタバル</td><td>つばき賞(1勝)</td><td>1着</td></tr>
+        <tr><td>2025</td><td>ファンダム</td><td>ジュニアC(L)</td><td>1着</td></tr>
+      </tbody>
+    </table>
+    <ul class="rule-list" style="margin-top:10px;">
+      <li><strong>前走1勝クラス/リステッド1着が6/10回</strong>（最多）: 特にアルメリア賞（阪神芝1800）からは2019・2022の2回勝利</li>
+      <li>前走G3着外（6着前後）からの巻き返しも3/10回: 共同通信杯・シンザン記念経由で「叩き台型」として切らない</li>
+      <li>共同通信杯（東京芝1800）経由の好走パターンは信頼度高（2016・2021・2023の勝ち馬）</li>
+    </ul>
+    <h3>距離ローテーション</h3>
+    <ul class="rule-list">
+      <li>同距離（芝1800）からの参戦: 6/10（最多）</li>
+      <li>距離延長（芝1600→1800）: 3/10</li>
+      <li>距離短縮（芝2400→1800）: 1/10</li>
+      <li>→ 同距離の芝1800組が中心。前走1600mでも問題なし</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>枠番傾向</h2>
+    <h3>1着・3着以内の枠番分布（過去10年）</h3>
+    <table class="data-table">
+      <thead><tr><th>枠番</th><th>1着回数</th><th>3着以内</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>1枠</td><td>3回</td><td>6回</td><td><strong>3着以内最多・複勝率60%</strong></td></tr>
+        <tr><td>2枠</td><td>0回</td><td>3回</td><td></td></tr>
+        <tr><td>3枠</td><td>2回</td><td>5回</td><td>好相性枠</td></tr>
+        <tr><td>4枠</td><td>2回</td><td>2回</td><td></td></tr>
+        <tr><td>5枠</td><td>0回</td><td>4回</td><td></td></tr>
+        <tr><td>6枠</td><td>1回</td><td>2回</td><td></td></tr>
+        <tr><td>7枠</td><td>2回</td><td>3回</td><td></td></tr>
+        <tr><td>8枠</td><td>0回</td><td>3回</td><td>主に多頭数年</td></tr>
+      </tbody>
+    </table>
+    <ul class="rule-list" style="margin-top:10px;">
+      <li><strong>内枠（1〜3枠）が3着以内に入る確率が高い</strong>: 1枠は複勝率60%（10年中6回）</li>
+      <li>今年は7頭立ての小頭数のため枠の影響は縮小されるが、1〜3枠は依然有利</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>血統傾向</h2>
+    <h3>歴代勝ち馬の父系</h3>
+    <table class="data-table">
+      <thead><tr><th>年</th><th>勝ち馬</th><th>父</th><th>父系</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>スマートオーディン</td><td>ダノンシャンティ</td><td>SS系（フジキセキ）</td></tr>
+        <tr><td>2017</td><td>アルアイン</td><td>ディープインパクト</td><td>SS系</td></tr>
+        <tr><td>2018</td><td>ブラストワンピース</td><td>ハービンジャー</td><td>欧州系（デインヒル）</td></tr>
+        <tr><td>2019</td><td>ランスオブプラーナ</td><td>ケープブランコ</td><td>欧州系（ガリレオ）</td></tr>
+        <tr><td>2020</td><td>サトノインプレッサ</td><td>ディープインパクト</td><td>SS系</td></tr>
+        <tr><td>2021</td><td>シャフリヤール</td><td>ディープインパクト</td><td>SS系</td></tr>
+        <tr><td>2022</td><td>ピースオブエイト</td><td>スクリーンヒーロー</td><td>ロベルト系</td></tr>
+        <tr><td>2023</td><td>シーズンリッチ</td><td>ドゥラメンテ</td><td>キングカメハメハ系</td></tr>
+        <tr><td>2024</td><td>メイショウタバル</td><td>ゴールドシップ</td><td>SS系（ステイゴールド）</td></tr>
+        <tr><td>2025</td><td>ファンダム</td><td>サートゥルナーリア</td><td>ロードカナロア系</td></tr>
+      </tbody>
+    </table>
+    <ul class="rule-list" style="margin-top:10px;">
+      <li>SS系（広義）が5/10で最多: ダノンシャンティ・ディープ×3・ゴールドシップ</li>
+      <li>近年（2022〜2025）はSS系外の馬が4連勝: 血統の多様化が進む</li>
+      <li>欧州系（ガリレオ・デインヒル）の適性はあり: 2018ハービンジャー・2019ケープブランコ</li>
+      <li><strong>今年のカフジエメンタール（ポエティックフレア=ガリレオ系）</strong>は2019ランスオブプラーナと血統的に類似</li>
+    </ul>
+    <h3>3着以内に入りやすい血統特徴</h3>
+    <ul class="rule-list">
+      <li>SS系全般（特にディープインパクト系）は安定</li>
+      <li>欧州ガリレオ・デインヒル系は阪神芝1800に適性あり</li>
+      <li>ロベルト系（スクリーンヒーロー・エピファネイア）も好走歴あり</li>
+    </ul>
+  </div>
+
   <div class="card">
     <h2>法則まとめ</h2>
-    <p>データなし</p>
+    <ul class="rule-list">
+      <li><strong>必勝パターン</strong>: 前走アルメリア賞（阪神芝1800 1勝クラス）1着→毎日杯（2019・2022の2回）</li>
+      <li><strong>狙い</strong>: 前走1勝クラス/リステッド1着（10年中6回）</li>
+      <li><strong>叩き台型</strong>: 前走G3で6着前後の着外→毎日杯巻き返し（2016・2017・2023）。切らない</li>
+      <li><strong>枠</strong>: 内枠（1〜3枠）が3着以内率高い。1枠は複勝率60%</li>
+      <li><strong>1番人気</strong>: 複勝率40%と信頼度低め。頭固定は避ける</li>
+      <li><strong>消し</strong>: 前走ダート・直近3走すべて惨敗・重賞歴なし未勝利勝ちのみ</li>
+    </ul>
   </div>
-  <p class="note" style="margin:0 0 20px;">
-    ※分析対象: 過去10年分。
+
+  <div class="card">
+    <h2>予想への応用</h2>
+    <ul class="rule-list">
+      <li><strong>◎カフジエメンタール（2番）</strong>: アルメリア賞必勝パターン＋ML複勝最高＋武豊。全指標トップ。</li>
+      <li><strong>○アルトラムス（4番）</strong>: シャフリヤール同型の「G3 3着→毎日杯」パターン。1番人気急落（1.6→2.6）は割安サイン。</li>
+      <li><strong>▲ローベルクランツ（3番）</strong>: 叩き台型パターン合致＋ML単勝スコア最高。馬体重-10kgが解消なら一発ある。</li>
+      <li><strong>△ウップヘリーア（6番）</strong>: 内容的には及第点だが騎手乗り替わり・輸送不安。押さえ。</li>
+      <li><strong>注意：⑦シーズザスローン</strong>: データ上は消しだが単勝28.0→15.8急騰。調教情報が流れた可能性あり。</li>
+    </ul>
+  </div>
+
+  <p class="note" style="margin: 0 0 20px;">
+    ※分析対象: 2016〜2025年（10年分）。阪神 芝1800m。生成日: 2026-03-28
   </p>
 </div>
 
@@ -103,5 +384,6 @@
 </div><!-- /page-wrapper -->
 
 <script src="../js/race.js"></script>
+
 </body>
 </html>
