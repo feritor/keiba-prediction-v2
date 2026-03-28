@@ -14,7 +14,6 @@ const RACE_EVENTS = {
     { name: '愛知杯',     url: 'race/aichi-cup-2026.html',     grade: 'g3' },
   ],
   '2026-03-28': [
-    { name: '日経賞', url: 'race/nikkeisho-2026.html', grade: 'g2' },
     { name: '毎日杯', url: 'race/mainichi-hai-2026.html', grade: 'g3' },
     { name: '日経賞', url: 'race/nikkei-sho-2026.html', grade: 'g2' },
   ],
