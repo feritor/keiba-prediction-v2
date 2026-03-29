@@ -17,6 +17,9 @@ const RACE_EVENTS = {
     { name: '毎日杯', url: 'race/mainichi-hai-2026.html', grade: 'g3' },
     { name: '日経賞', url: 'race/nikkei-sho-2026.html', grade: 'g2' },
   ],
+  '2026-03-29': [
+    { name: '高松宮記念', url: 'race/takamatsumiya-kinen-2026.html', grade: 'g1' },
+  ],
 };
 
 const GRADE_COLOR = { g1: '#e63946', g2: '#457b9d', g3: '#2d6a4f', default: '#999' };

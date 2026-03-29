@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高松宮記念 2026 AI予想 | 競馬予想サイト</title>
+  <link rel="stylesheet" href="../css/race.css">
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="../index.html" class="back-link">← レース一覧に戻る</a>
+</div>
+
+<header>
+  <div class="site-name">競馬AI予想</div>
+  <h1>高松宮記念 2026</h1>
+  <div class="race-meta">
+    <span class="grade-badge g1">GI</span>
+    2026年3月29日（日） 中京11R ／ 芝1200m( )
+  </div>
+</header>
+
+<div class="page-wrapper">
+<div class="tab-card">
+
+<!-- タブ -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('yoso')">予想</button>
+  <button class="tab-btn" onclick="switchTab('kaimoku')">買い目</button>
+  <button class="tab-btn" onclick="switchTab('trend')">傾向分析</button>
+</div>
+
+<!-- ========== 予想タブ ========== -->
+<div id="tab-yoso" class="tab-content active">
+
+  <div class="card">
+    <h2>予想印（ルールベース＋ML統合）</h2>
+    <div class="horse-list">
+
+      <div class="horse-row row-honmei">
+        <span class="badge badge-honmei">◎</span>
+        <div class="horse-num">9</div>
+        <div class="horse-info">
+          <div class="horse-name">サトノレーヴ</div>
+          <div class="horse-sub">騎手: ルメール(S) ／ ML単: 0.657△（2位） ／ ML複: 0.570△（1位）</div>
+          <div class="horse-sub">前年覇者×ロードカナロア×香港直行×ルール+ML両◎</div>
+        </div>
+        <div class="horse-odds">4.0倍<small>2番人気</small></div>
+      </div>
+      <div class="horse-row row-taiko">
+        <span class="badge badge-taiko">○</span>
+        <div class="horse-num">10</div>
+        <div class="horse-info">
+          <div class="horse-name">ママコチャ</div>
+          <div class="horse-sub">騎手: 川田(S) ／ ML単: 0.659△（1位） ／ ML複: 0.561△（2位）</div>
+          <div class="horse-sub">ML1位 × 川田S × 前年3着 × 良馬場で浮上</div>
+        </div>
+        <div class="horse-odds">8.8倍<small>4番人気</small></div>
+      </div>
+      <div class="horse-row row-santen">
+        <span class="badge badge-santen">▲</span>
+        <div class="horse-num">13</div>
+        <div class="horse-info">
+          <div class="horse-name">ナムラクレア</div>
+          <div class="horse-sub">騎手: 浜中(B) ／ ML単: 0.492（6位） ／ ML複: 0.365（11位）</div>
+          <div class="horse-sub">3年連続2着リピーター。1番人気だが3着内鉄板</div>
+        </div>
+        <div class="horse-odds">3.9倍<small>1番人気</small></div>
+      </div>
+      <div class="horse-row row-tanko">
+        <span class="badge badge-tanko">△</span>
+        <div class="horse-num">18</div>
+        <div class="horse-info">
+          <div class="horse-name">ジューンブレア</div>
+          <div class="horse-sub">騎手: 武豊(A) ／ ML単: 0.565△（3位） ／ ML複: 0.541△（3位）</div>
+          <div class="horse-sub">ML3位 × 武豊A × 前走1400m大敗→1200m巻き返し</div>
+        </div>
+        <div class="horse-odds">15.3倍<small>5番人気</small></div>
+      </div>
+      <div class="horse-row row-tanko">
+        <span class="badge badge-tanko">△</span>
+        <div class="horse-num">17</div>
+        <div class="horse-info">
+          <div class="horse-name">ペアポルックス</div>
+          <div class="horse-sub">騎手: 岩田康(B) ／ ML単: 0.391（11位） ／ ML複: 0.377（7位）</div>
+          <div class="horse-sub">オーシャンS1着 × ナランフレグ先例 × 体重+4kg</div>
+        </div>
+        <div class="horse-odds">36.0倍<small>10番人気</small></div>
+      </div>
+      <div class="horse-row row-tanko">
+        <span class="badge badge-tanko">△</span>
+        <div class="horse-num">5</div>
+        <div class="horse-info">
+          <div class="horse-name">ヤマニンアルリフラ</div>
+          <div class="horse-sub">騎手: 団野(B) ／ ML単: 0.393（10位） ／ ML複: 0.372（9位）</div>
+          <div class="horse-sub">シルクロードS3着×内枠(良馬場)×2023年優勝コンビ</div>
+        </div>
+        <div class="horse-odds">39.9倍<small>11番人気</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>過去傾向との照合</h2>
+    <table class="data-table"><thead><tr><th>パターン</th><th>該当馬</th><th>信頼度</th></tr></thead><tbody><tr><td>香港スプリント(GI)直行→優勝（近3年連続）</td><td>サトノレーヴ（9番・前年覇者）、ウインカーネリアン（8番・スプリンターズS1着）</td><td class="pop1">高（3/3）</td></tr>
+<tr><td>シルクロードS2〜3着→好走</td><td>ヤマニンアルリフラ（5番・シルクロードS3着）</td><td class="pop1">高（5/10）</td></tr>
+<tr><td>前年2着馬のリピート3着内</td><td>ナムラクレア（13番・3年連続2着）</td><td class="pop1">高（3/3）</td></tr>
+<tr><td>オーシャンS1着→好走</td><td>ペアポルックス（17番・オーシャンS1着）</td><td class="pop2">中（1/10）</td></tr>
+<tr><td>内枠(1〜3枠)有利 ※良馬場で強調</td><td>パンジャタワー（1枠1番）、エーティーマクフィ（2枠3番）、ヤマニンアルリフラ（3枠5番）</td><td class="pop2">中（5/10）</td></tr>
+<tr><td>ロードカナロア産駒（近年3回優勝）</td><td>サトノレーヴ（9番・父ロードカナロア・母父サクラバクシンオー）</td><td class="pop1">高（3/10）</td></tr>
+<tr><td>1番人気優勝 10%のみ</td><td>ナムラクレア（13番・1番人気）</td><td>逆利用（危険）</td></tr>
+<tr><td>前年3着リピーター × S評価騎手</td><td>ママコチャ（10番・川田S評価・ML1位）</td><td class="pop2">中</td></tr>
+</tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>全出走馬の評価</h2>
+    <table class="data-table"><thead><tr><th>馬番</th><th>馬名</th><th>単勝</th><th>ML単</th><th>ML印</th><th>ML複</th><th>ML印</th><th>騎手</th><th>騎手評価</th><th>統合印</th></tr></thead><tbody><tr><td>1</td><td>パンジャタワー</td><td>4.7</td><td>0.539</td><td>—</td><td>0.466</td><td>—</td><td>松山</td><td>A</td><td>△</td></tr>
+<tr><td>2</td><td>ビッグシーザー</td><td>52.8</td><td>0.400</td><td>—</td><td>0.319</td><td>—</td><td>西村淳</td><td>—</td><td>×</td></tr>
+<tr><td>3</td><td>エーティーマクフィ</td><td>20.7</td><td>0.227</td><td>—</td><td>0.209</td><td>—</td><td>富田</td><td>—</td><td>×</td></tr>
+<tr><td>4</td><td>ダノンマッキンリー</td><td>62.9</td><td>0.504</td><td>—</td><td>0.454</td><td>—</td><td>高杉</td><td>—</td><td>×</td></tr>
+<tr><td>5</td><td>ヤマニンアルリフラ</td><td>39.9</td><td>0.393</td><td>—</td><td>0.372</td><td>—</td><td>団野</td><td>B</td><td>△</td></tr>
+<tr><td>6</td><td>レッドモンレーヴ</td><td>53.4</td><td>0.281</td><td>—</td><td>0.247</td><td>—</td><td>酒井</td><td>—</td><td>×</td></tr>
+<tr><td>7</td><td>ヨシノイースター</td><td>69.6</td><td>0.332</td><td>—</td><td>0.330</td><td>—</td><td>田辺</td><td>B</td><td>×</td></tr>
+<tr><td>8</td><td>ウインカーネリアン</td><td>18.1</td><td>0.294</td><td>—</td><td>0.247</td><td>—</td><td>三浦</td><td>B</td><td>△⚠️</td></tr>
+<tr><td>9</td><td>サトノレーヴ</td><td>4.0</td><td>0.657</td><td>△</td><td>0.570</td><td>△</td><td>ルメール</td><td>S</td><td class="pop1">◎</td></tr>
+<tr><td>10</td><td>ママコチャ</td><td>8.8</td><td>0.659</td><td>△</td><td>0.561</td><td>△</td><td>川田</td><td>S</td><td class="pop2">○</td></tr>
+<tr><td>11</td><td>ララマセラシオン</td><td>46.2</td><td>0.377</td><td>—</td><td>0.374</td><td>—</td><td>丸田</td><td>—</td><td>×</td></tr>
+<tr><td>12</td><td>ピューロマジック</td><td>95.4</td><td>0.379</td><td>—</td><td>0.363</td><td>—</td><td>北村友</td><td>—</td><td>×</td></tr>
+<tr><td>13</td><td>ナムラクレア</td><td>3.9</td><td>0.492</td><td>—</td><td>0.365</td><td>—</td><td>浜中</td><td>B</td><td>▲</td></tr>
+<tr><td>14</td><td>レイピア</td><td>17.5</td><td>0.482</td><td>—</td><td>0.405</td><td>—</td><td>丸山</td><td>C</td><td>△</td></tr>
+<tr><td>15</td><td>インビンシブルパパ</td><td>24.2</td><td>0.454</td><td>—</td><td>0.368</td><td>—</td><td>佐々木</td><td>—</td><td>×</td></tr>
+<tr><td>16</td><td>フィオライア</td><td>97.8</td><td>0.240</td><td>—</td><td>0.269</td><td>—</td><td>太宰</td><td>—</td><td>×</td></tr>
+<tr><td>17</td><td>ペアポルックス</td><td>36.0</td><td>0.391</td><td>—</td><td>0.377</td><td>—</td><td>岩田康</td><td>B</td><td>△</td></tr>
+<tr><td>18</td><td>ジューンブレア</td><td>15.3</td><td>0.565</td><td>△</td><td>0.541</td><td>△</td><td>武豊</td><td>A</td><td>△↑</td></tr>
+</tbody></table>
+    
+  </div>
+
+  <div class="card">
+    <h2>ML穴馬候補</h2>
+    <p>データなし</p>
+  </div>
+
+  <p class="note" style="margin:0 0 20px;">
+    ※本予想はルールベース傾向分析（過去10年）＋LightGBMモデル（20260326（LightGBM）学習済み）＋騎手成績データ（直近3年）によるAI統合予想です。調教・当日馬場状態は含まれません。馬券は自己責任でお楽しみください。
+  </p>
+</div>
+
+<!-- ========== 買い目タブ ========== -->
+<div id="tab-kaimoku" class="tab-content">
+
+  <div class="card">
+    <h2>推奨買い目（◎⑨サトノレーヴ軸）</h2>
+    <h3>メインライン（◎軸）</h3>
+    <table class="bet-table"><thead><tr><th>式別</th><th>内容</th><th>根拠</th></tr></thead><tbody><tr><td><span class="bet-type">単勝</span></td><td>⑨</td><td>本命</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑨ー⑩</td><td>◎-○（ルール+ML両方推し）</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑨ー⑬</td><td>◎-▲</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑨ー⑱</td><td>◎-△（ML3位・武豊）</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑨ー⑰</td><td>◎-△（穴）</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑨ー⑤</td><td>◎-△（穴・良馬場内枠）</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>⑨ー⑩ー⑬</td><td>◎-○-▲ メイン</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>⑨ー⑩ー⑱</td><td>◎-○-△（ML上位3頭）</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>⑨ー⑬ー⑱</td><td>◎-▲-△</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>⑨ー⑩ー⑰</td><td>◎-○-穴</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>⑨ー⑩ー⑤</td><td>◎-○-大穴（良馬場内枠）</td></tr>
+</tbody></table>
+    <h3 style="margin-top:16px;">保険ライン（◎が飛んだ時用）</h3>
+    <table class="bet-table"><thead><tr><th>式別</th><th>内容</th><th>根拠</th></tr></thead><tbody><tr><td><span class="bet-type">馬連</span></td><td>⑩ー⑬</td><td>○-▲（ML1位×リピーター）</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑬ー⑱</td><td>▲-△（リピーター×武豊）</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑩ー⑱</td><td>○-△（ML1位×ML3位）</td></tr>
+<tr><td><span class="bet-type">3連複</span></td><td>⑩ー⑬ー⑱</td><td>○-▲-△（ML上位組）</td></tr>
+<tr><td><span class="bet-type">馬連</span></td><td>⑬ー⑰</td><td>▲-穴（ナランフレグ先例）</td></tr>
+</tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>全出走馬オッズ</h2>
+    <table class="data-table"><thead><tr><th>馬番</th><th>人気</th><th>単勝オッズ</th><th>複勝下限</th><th>馬名</th><th>馬体重 (増減)</th></tr></thead><tbody><tr><td>13</td><td class="pop1">1</td><td>3.9</td><td>1.4</td><td>ナムラクレア</td><td>476 (-8)</td></tr>
+<tr><td>9</td><td class="pop2">2</td><td>4.0</td><td>1.6</td><td>サトノレーヴ</td><td>530 (-2)</td></tr>
+<tr><td>1</td><td>3</td><td>4.7</td><td>2.0</td><td>パンジャタワー</td><td>486 (前計不)</td></tr>
+<tr><td>10</td><td>4</td><td>8.8</td><td>2.2</td><td>ママコチャ</td><td>492 (-2)</td></tr>
+<tr><td>18</td><td>5</td><td>15.3</td><td>2.9</td><td>ジューンブレア</td><td>484 (-4)</td></tr>
+<tr><td>14</td><td>6</td><td>17.5</td><td>3.9</td><td>レイピア</td><td>516 (+6)</td></tr>
+<tr><td>8</td><td>7</td><td>18.1</td><td>4.3</td><td>ウインカーネリアン</td><td>516 (+3)</td></tr>
+<tr><td>3</td><td>8</td><td>20.7</td><td>4.0</td><td>エーティーマクフィ</td><td>476 (-6)</td></tr>
+<tr><td>15</td><td>9</td><td>24.2</td><td>5.9</td><td>インビンシブルパパ</td><td>522 (+8)</td></tr>
+<tr><td>17</td><td>10</td><td>36.0</td><td>6.8</td><td>ペアポルックス</td><td>478 (+4)</td></tr>
+<tr><td>5</td><td>11</td><td>39.9</td><td>6.2</td><td>ヤマニンアルリフラ</td><td>494 (-8)</td></tr>
+<tr><td>2</td><td>13</td><td>52.8</td><td>7.8</td><td>ビッグシーザー</td><td>520 (0)</td></tr>
+<tr><td>6</td><td>14</td><td>53.4</td><td>8.1</td><td>レッドモンレーヴ</td><td>500 (-18)</td></tr>
+<tr><td>4</td><td>15</td><td>62.9</td><td>11.2</td><td>ダノンマッキンリー</td><td>472 (0)</td></tr>
+<tr><td>11</td><td>12</td><td>46.2</td><td>7.2</td><td>ララマセラシオン</td><td>530 (+4)</td></tr>
+<tr><td>7</td><td>16</td><td>69.6</td><td>8.8</td><td>ヨシノイースター</td><td>492 (+6)</td></tr>
+<tr><td>12</td><td>17</td><td>95.4</td><td>17.2</td><td>ピューロマジック</td><td>456 (-2)</td></tr>
+<tr><td>16</td><td>18</td><td>97.8</td><td>15.3</td><td>フィオライア</td><td>464 (-4)</td></tr>
+</tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>総評</h2>
+    <p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>◎サトノレーヴ（9番）を本命とする。ルールとMLが完全に一致した最有力候補。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">前年覇者×ロードカナロア産駒×母父サクラバクシンオー×香港スプリント直行（近3年連続優勝経路）というルールベースの全条件合致に加え、MLスコア全体2位（0.657）が後押し。ルメールS評価・馬体重530kg(-2)の安定も万全。今年は良馬場確認済みで2025年の優勝条件と酷似。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>最大の注目ポイント: ○ママコチャ（10番）のML1位浮上。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">ルールベースでは△評価だったが、<strong>MLスコア全体1位（0.659）</strong>という衝撃の結果。さらに川田将雅S評価（勝率26.3%・複勝56.1%）という最強騎手コンビ。前年3着からのリピートで良馬場での先行力も武器。4番人気8.8倍は割安感があり、◎の相手筆頭として○に昇格させる。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>▲ナムラクレア（13番）は3着内確保の鉄板だが頭は危険。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">3年連続2着のシルバーコレクター。3着内確率は極めて高いがMLスコア6位（0.492）と上位3頭に及ばず、良馬場での外枠（7枠）マイナスも重なる。1番人気（3.9倍）での単勝は投資効率が悪い。連複の軸として活用するのが最適。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>ML3位⑱ジューンブレアと穴馬⑰ペアポルックス・⑤ヤマニンアルリフラに注意。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:12px;">ジューンブレア（0.565）は前走1400m大敗の印象が悪いが、MLは1200mでの能力を評価。武豊A評価×良馬場1200mで変わり身十分。ペアポルックスはオーシャンS1着から馬体重+4kgの良化で36.0倍の大穴候補。ヤマニンアルリフラは良馬場で内枠の恩恵が最大化される。</p>
+<p style="font-size:14px;line-height:1.8;margin-top:16px;"><strong>ウインカーネリアン（8番）はML乖離に要注意。</strong></p>
+<p style="font-size:14px;line-height:1.8;margin-top:4px;">ルールベースでは○評価だったが、MLスコア15位（0.294）という大幅下位が気になる。香港直行ルートの近年トレンドをMLが学習しきれていない可能性もあるが、より保守的な評価として△に留める。</p>
+
+  </div>
+
+</div>
+
+<!-- ========== 傾向分析タブ ========== -->
+<div id="tab-trend" class="tab-content">
+
+  <div class="card"><h2>過去10年の結果（2016〜2025）</h2><table class="data-table"><thead><tr><th>年</th><th>1着</th><th>人気</th><th>枠</th><th>2着</th><th>人気</th><th>枠</th><th>3着</th><th>人気</th><th>枠</th><th>馬場</th></tr></thead><tbody>
+<tr><td>2016</td><td>ビッグアーサー</td><td>4</td><td>2</td><td>ミッキーアイル</td><td>3</td><td>3</td><td>アルビアーノ</td><td>8</td><td>4</td><td>良</td></tr>
+<tr><td>2017</td><td>セイウンコウセイ</td><td>4</td><td>3</td><td>レッツゴードンキ</td><td>13</td><td>2</td><td>レッドファルクス</td><td>8</td><td>4</td><td>稍重</td></tr>
+<tr><td>2018</td><td>ファインニードル</td><td>6</td><td>5</td><td>レッツゴードンキ</td><td>8</td><td>4</td><td>ナックビーナス</td><td>6</td><td>4</td><td>良</td></tr>
+<tr><td>2019</td><td>ミスターメロディ</td><td>4</td><td>2</td><td>セイウンコウセイ</td><td>3</td><td>2</td><td>ショウナンアンセム</td><td>13</td><td>4</td><td>良</td></tr>
+<tr><td>2020</td><td>モズスーパーフレア</td><td>1</td><td>8</td><td>グランアレグリア</td><td>13</td><td>4</td><td>ダイアトニック</td><td>4</td><td>2</td><td>重</td></tr>
+<tr><td>2021</td><td>ダノンスマッシュ</td><td>10</td><td>7</td><td>レシステンシア</td><td>6</td><td>8</td><td>インディチャンプ</td><td>11</td><td>5</td><td>重</td></tr>
+<tr><td>2022</td><td>ナランフレグ</td><td>15</td><td>1</td><td>ロータスランド</td><td>7</td><td>5</td><td>キルロード</td><td>3</td><td>5</td><td>重</td></tr>
+<tr><td>2023</td><td>ファストフォース</td><td>7</td><td>7</td><td>ナムラクレア</td><td>10</td><td>7</td><td>トゥラヴェスーラ</td><td>10</td><td>1</td><td>不良</td></tr>
+<tr><td>2024</td><td>マッドクール</td><td>3</td><td>1</td><td>ナムラクレア</td><td>10</td><td>2</td><td>ビクターザウィナー</td><td>1</td><td>5</td><td>重</td></tr>
+<tr><td>2025</td><td>サトノレーヴ</td><td>7</td><td>5</td><td>ナムラクレア</td><td>13</td><td>7</td><td>ママコチャ</td><td>9</td><td>7</td><td>良</td></tr>
+</tbody></table>
+    <p style="font-size:12px; color:#999; margin-top:8px;">※2016〜2025年はオッズ・人気データが保存されていないため一部非公開</p>
+  </div>
+  <div class="card"><h2>人気・オッズ傾向</h2><h3 style="margin-top:16px;">1着馬の人気分布</h3>
+<table class="data-table"><thead><tr><th>人気</th><th>回数</th><th>割合</th></tr></thead><tbody>
+<tr><td>1番人気</td><td>1回</td><td>10%</td></tr>
+<tr><td>2〜3番人気</td><td>1回</td><td>10%</td></tr>
+<tr><td>4〜6番人気</td><td>4回</td><td>40%</td></tr>
+<tr><td>7〜9番人気</td><td>2回</td><td>20%</td></tr>
+<tr><td>10番人気以下</td><td>2回</td><td>20%</td></tr>
+</tbody></table><p style="font-size:13px;margin-top:6px;"><strong>→ 1番人気優勝は10年で1回(10%)のみ。1番人気を中心に買うのは最悪な戦略。</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ 4〜6番人気が最多（40%）。中穴が狙い目。</strong></p>
+<h3 style="margin-top:16px;">3着内に入った人気帯</h3>
+<ul class="rule-list"><li>1番人気の3着内は2/10年（2020年1着・2024年3着のみ）→ 1番人気は過半数で馬券外</li><li>10番人気以下の3着内: 少なくとも8回（複数年で出現）→ <strong>大穴も毎年のように絡む</strong></li><li>3着内の人気の内訳平均: 上位3頭の合計人気は毎年ばらつきが大きい</li></ul>
+<h3 style="margin-top:16px;">馬連・3連複の傾向</h3>
+<ul class="rule-list"><li>1番人気×2番人気で決まったことは10年で0回</li><li>重・不良馬場年（2020〜2024）は特に荒れる傾向</li><li>良馬場でも2016年（4-3-8番人気）とそこそこ荒れた</li><li><strong>買い方: 軸1頭多め流しが有効。1番人気を外しても三連単は美味しくなる</strong></li></ul>
+</div>
+  <div class="card"><h2>前走パターン・臨戦過程</h2><h3 style="margin-top:16px;">勝ち馬の前走レース</h3>
+<table class="data-table"><thead><tr><th>年</th><th>勝ち馬</th><th>前走レース</th><th>前走着順</th></tr></thead><tbody>
+<tr><td>2016</td><td>ビッグアーサー</td><td>シルクロードS(GIII)</td><td>5着</td></tr>
+<tr><td>2017</td><td>セイウンコウセイ</td><td>シルクロードS(GIII)</td><td>2着</td></tr>
+<tr><td>2018</td><td>ファインニードル</td><td>シルクロードS(GIII)</td><td>1着</td></tr>
+<tr><td>2019</td><td>ミスターメロディ</td><td>阪急杯(GIII)</td><td>7着</td></tr>
+<tr><td>2020</td><td>モズスーパーフレア</td><td>シルクロードS(GIII)</td><td>4着</td></tr>
+<tr><td>2021</td><td>ダノンスマッシュ</td><td>香港スプリント(GI)</td><td>1着</td></tr>
+<tr><td>2022</td><td>ナランフレグ</td><td>オーシャンS(GIII)</td><td>2着</td></tr>
+<tr><td>2023</td><td>ファストフォース</td><td>シルクロードS(GIII)</td><td>2着</td></tr>
+<tr><td>2024</td><td>マッドクール</td><td>香港スプリント(GI)</td><td>海外直行</td></tr>
+<tr><td>2025</td><td>サトノレーヴ</td><td>香港スプリント(GI)</td><td>3着→直行</td></tr>
+</tbody></table><p style="font-size:13px;margin-top:6px;"><strong>→【最重要法則】シルクロードS(GIII)経由が10年で5回（50%）と最多。前走着順は1〜5着と不問。</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ 香港スプリント(GI)直行が3回（近年3連続）。この経路は近年のトレンドで要注目。</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ オーシャンS経由も1回。前走2着など好走から直行は有効。</strong></p>
+<h3 style="margin-top:16px;">前走着順の傾向</h3>
+<ul class="rule-list"><li>シルクロードS経由: 1〜5着と幅広い。前走5着でも翌月巻き返す（2016年）</li><li>香港スプリント直行: 近年3年連続で同経路の馬が優勝（2021・2024・2025）</li><li><strong>前走惨敗（7着以下）から優勝したのは2019年ミスターメロディ（阪急杯7着→高松宮1着）のみ</strong></li><li>前走G3の2〜5着 → 高松宮で入着するパターンが多数</li></ul>
+<h3 style="margin-top:16px;">距離ローテーション</h3>
+<ul class="rule-list"><li>前走1200m（シルクロードS・オーシャンS）→ 主流経路</li><li>前走1400m（阪急杯）→ 1回のみ（距離短縮パターン）</li><li>海外1200m直行 → 近年の主要経路</li></ul>
+</div>
+  <div class="card"><h2>枠番傾向</h2><h3 style="margin-top:16px;">1着馬の枠番</h3>
+<table class="data-table"><thead><tr><th>枠</th><th>1着回数</th></tr></thead><tbody>
+<tr><td>1枠</td><td>2回（2022・2024）</td></tr>
+<tr><td>2枠</td><td>2回（2016・2019）</td></tr>
+<tr><td>3枠</td><td>1回（2017）</td></tr>
+<tr><td>4枠</td><td>0回</td></tr>
+<tr><td>5枠</td><td>2回（2018・2025）</td></tr>
+<tr><td>6枠</td><td>0回</td></tr>
+<tr><td>7枠</td><td>2回（2021・2023）</td></tr>
+<tr><td>8枠</td><td>1回（2020）</td></tr>
+</tbody></table><p style="font-size:13px;margin-top:6px;"><strong>→ 内枠(1〜3枠): 5回、中枠(4〜6枠): 2回、外枠(7〜8枠): 3回</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ 内枠やや有利。4枠・6枠の勝利なし（10年）。</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ ただし2023年不良・2021年重では外枠が勝利しており、馬場が悪化すると外枠不利が薄れる可能性も。</strong></p>
+<h3 style="margin-top:16px;">3着以内の枠番傾向</h3>
+<ul class="rule-list"><li>全10年で3着以内30頭の枠分布: 内枠(1〜3枠)が15頭(50%)と過半数</li><li>特に1〜2枠は優勝・複勝ともに成績安定</li><li>8枠は勝ち馬1頭（2020年）だが、複勝圏外になることも多い</li></ul>
+</div>
+  <div class="card"><h2>血統傾向</h2><h3 style="margin-top:16px;">歴代勝ち馬の父系</h3>
+<table class="data-table"><thead><tr><th>年</th><th>勝ち馬</th><th>父</th><th>父系</th></tr></thead><tbody>
+<tr><td>2016</td><td>ビッグアーサー</td><td>サクラバクシンオー</td><td>テスコボーイ系（欧州）</td></tr>
+<tr><td>2017</td><td>セイウンコウセイ</td><td>アドマイヤムーン</td><td>フォーティナイナー系（北米Mr.P）</td></tr>
+<tr><td>2018</td><td>ファインニードル</td><td>アドマイヤムーン</td><td>同上</td></tr>
+<tr><td>2019</td><td>ミスターメロディ</td><td>Scat Daddy</td><td>ストームキャット系（北米）</td></tr>
+<tr><td>2020</td><td>モズスーパーフレア</td><td>トランセンド</td><td>Gone West系（北米Mr.P）</td></tr>
+<tr><td>2021</td><td>ダノンスマッシュ</td><td>ロードカナロア</td><td>キングカメハメハ→Kingmambo系</td></tr>
+<tr><td>2022</td><td>ナランフレグ</td><td>ゴールドアリュール</td><td>サンデーサイレンス系（SS）</td></tr>
+<tr><td>2023</td><td>ファストフォース</td><td>ロードカナロア</td><td>キングカメハメハ→Kingmambo系</td></tr>
+<tr><td>2024</td><td>マッドクール</td><td>Dark Angel</td><td>Royal Applause系（欧州）</td></tr>
+<tr><td>2025</td><td>サトノレーヴ</td><td>ロードカナロア</td><td>キングカメハメハ→Kingmambo系</td></tr>
+</tbody></table><p style="font-size:13px;margin-top:6px;"><strong>→ ロードカナロア産駒が3回（21・23・25年）と最多。近年（2021〜2025）で3/5回。</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ 北米Mr.Prospector系（アドマイヤムーン・Gone West・Scat Daddy）が3回。</strong></p>
+<p style="font-size:13px;margin-top:6px;"><strong>→ SS系単体は1回（ナランフレグ/ゴールドアリュール）。ディープ系の勝利なし（10年）。</strong></p>
+<h3 style="margin-top:16px;">3着以内に入りやすい血統特徴</h3>
+<ul class="rule-list"><li><strong>ロードカナロア産駒</strong>: 優勝3回（21・23・25年）＋複数回の入着実績あり</li><li><strong>父に非サンデー系（欧米系スプリント血統）を持つ馬</strong>: 中京1200mの高速馬場に合う</li><li><strong>母父サクラバクシンオー</strong>: 2023年ファストフォース・2025年サトノレーヴの優勝馬に共通（中京1200m特化型）</li></ul>
+</div>
+  <div class="card"><h2>リピーター傾向</h2><ul class="rule-list"><li><strong>ナムラクレア</strong>: 2023年2着・2024年2着・2025年2着 → 3年連続2着の「シルバーコレクター」。勝ちきれないが毎年3着内は必至と言っていいレベル</li><li><strong>セイウンコウセイ</strong>: 2017年1着→2018年6着→2019年2着 → 複数年絡む典型的なリピーター（当年出走なし）</li><li><strong>ダノンスマッシュ</strong>: 2019年4着→2020年10着→2021年1着 → 3年目で優勝。叩き台型から頂点へ</li><li><strong>サトノレーヴ</strong>: 2025年1着 → 前年覇者として今年参戦（リピーター候補）</li></ul>
+<p style="font-size:13px;margin-top:6px;"><strong>→ このレースは3〜4年出走してくる馬が多く、前年2着馬・前年好走馬の扱いは重要。</strong></p>
+</div>
+  <div class="card"><h2>法則まとめ</h2><table class="data-table"><thead><tr><th>カテゴリ</th><th>法則</th></tr></thead><tbody>
+<tr><td>人気</td><td>1番人気優勝は10%のみ。4〜6番人気の中穴が最多（40%）。荒れ度合いは非常に高い</td></tr>
+<tr><td>枠番</td><td>内枠(1〜3枠)が5回と最多。4枠・6枠の勝利なし（10年）。外枠は悪馬場年に勝利あり</td></tr>
+<tr><td>前走</td><td>シルクロードS経由が最多（5/10）。前走着順不問（1〜5着全OK）。近3年は香港スプリント直行が優勝</td></tr>
+<tr><td>血統</td><td>ロードカナロア産駒最多（3回）。ディープインパクト産駒の優勝なし。北米・欧州スプリント系が有利</td></tr>
+<tr><td>リピーター</td><td>ナムラクレアは3年連続2着。前年優勝馬・2着馬は翌年も要注目</td></tr>
+<tr><td>荒れ方</td><td>10番人気以上の穴馬が毎年複数頭絡む。複勝2.0倍以下の人気馬は過信禁物</td></tr>
+<tr><td>年齢</td><td>5〜6歳馬が多く好走。古馬（7〜9歳）でも上位争い可能（ナムラクレア7歳で3年連続2着等）</td></tr>
+<tr><td>馬場</td><td>重・不良馬場での開催が10年で6回（2020〜2024で5回）。前走の良馬場成績だけで判断してはいけない</td></tr>
+</tbody></table></div>
+  <div class="card"><h2>予想への応用</h2><ol class="rule-list"><li><strong>サトノレーヴ（9番）が筆頭評価</strong>: 前年優勝 × ロードカナロア産駒 × 母父サクラバクシンオー × 香港スプリント直行ルート（過去3回優勝）× ルメール騎乗。複数の法則に合致</li><li><strong>ナムラクレア（13番）は3着内確保要員</strong>: 3年連続2着のシルバーコレクター。1番人気で馬券中心に置くのは危険だが、3着内からは外しにくい。7枠外枠が唯一の減点</li><li><strong>ペアポルックス（17番）は穴馬筆頭</strong>: オーシャンS1着経由（2022年ナランフレグが同経路15番人気優勝）。10番人気30倍の高配当候補</li><li><strong>ウインカーネリアン（8番）は実力上位の中穴</strong>: 2025年スプリンターズS1着 × 香港スプリント直行ルート（過去3回優勝）。8番人気19.6倍と割安</li><li><strong>ヤマニンアルリフラ（5番）は前走型一致の穴</strong>: シルクロードS3着（最多ステップ）× 3枠内枠。11番人気38倍の大穴候補</li><li><strong>1番人気ナムラクレアを軸にした馬券は回収率悪化リスク大</strong>: 過去10年で1番人気優勝は2020年の1回のみ（10%）。三連単の本命軸には向かない</li></ol>
+<p style="font-size:13px;margin-top:6px;">*生成日: 2026-03-28*</p>
+</div>
+
+
+  <p class="note" style="margin:0 0 20px;">
+    ※分析対象: 2016〜2025年（10年分）。中京芝1200m（良〜不良）。生成日: 2026-03-28
+  </p>
+</div>
+
+</div><!-- /tab-card -->
+</div><!-- /page-wrapper -->
+
+<script src="../js/race.js"></script>
+</body>
+</html>
